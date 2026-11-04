@@ -1,9 +1,19 @@
 import glob
+import json
+import math
 import os
 import re
+import time
+from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import torch
+import torch.nn.functional as F
+from torch.utils.data import DataLoader, TensorDataset
+from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score,
+                             precision_score, recall_score, roc_auc_score)
 
 FS_IN = 256
 FS_OUT = 200
@@ -11,6 +21,7 @@ BAND = (0.1, 50.0)
 ORDER = 5
 MERGE_TOL = 60
 WIN_SEC = 10.0
+GUARD = 600.0   # 同一切分点两侧丢弃的缓冲秒数
 ELECS = ["Fp1-F7", "Fp2-F8", "T7-P7", "T8-P8", "P7-O1", "P8-O2"]
 
 COLS = ["edf_file", "patient_id", "record_id", "channel", "seizure_id", "window_id",
@@ -443,13 +454,31 @@ def _split_loocv(metadata, val, seed, enc_val=None):
     index = metadata.index.to_numpy()
     label = metadata.label.to_numpy()
     sid = metadata.seizure_id.to_numpy()
-    nid = metadata.next_seizure_id.to_numpy()
+    prev = metadata.prev_seizure_id.to_numpy()
+    nxt = metadata.next_seizure_id.to_numpy()
     cen = metadata.center_abs_s.to_numpy()
 
     pre = (label == 1)
     bg = (label == 0)
     seizes = sorted(set(sid[pre].tolist()))
-    own = _owner(nid, seizes)
+    onset = {k: float(cen[pre & (sid == k)].max()) for k in seizes}
+
+    # 间期池按 (前一次发作, 后一次发作) 分块：块内连续，块间至少隔一次发作 + 两侧 interictal_thr
+    groups = {}
+    for i, key in zip(index[bg], zip(prev[bg], nxt[bg])):
+        groups.setdefault(key, []).append(i)
+    blocks = sorted(groups.values(), key=lambda v: cen[v].min())
+    blocks = [np.asarray(v, dtype=np.int64) for v in blocks]
+    # 块不够三方分时，从最长的块中间切开，砍掉 GUARD 秒缓冲，保证三边都拿得到间期
+    while len(blocks) < 3:
+        i = max(range(len(blocks)), key=lambda j: len(blocks[j]))
+        mid = cen[blocks[i][len(blocks[i]) // 2]]
+        left = blocks[i][cen[blocks[i]] <= mid - GUARD]
+        right = blocks[i][cen[blocks[i]] >= mid + GUARD]
+        if not len(left) or not len(right):
+            break
+        blocks[i:i + 1] = [left, right]
+    blocks = sorted(blocks, key=lambda v: cen[v].min())
 
     folds = []
     for k in seizes:
@@ -458,13 +487,27 @@ def _split_loocv(metadata, val, seed, enc_val=None):
         near = sorted(rest, key=lambda s: (abs(s - k), s > k))
         va_sz, tr_sz = sorted(near[:n_val]), sorted(near[n_val:])
 
-        te = (index[pre & (sid == k)], index[bg & (own == k)])
-        va = (index[pre & np.isin(sid, va_sz)], index[bg & np.isin(own, va_sz)]) \
+        # 间期块按离测试发作的远近排序，近的给测试、其次验证，其余训练；整块分配，一块不跨集合
+        order = sorted(range(len(blocks)),
+                       key=lambda b: (abs(float(cen[blocks[b]].mean()) - onset[k]), b))
+        need = [len(index[pre & (sid == k)]),
+                len(index[pre & np.isin(sid, va_sz)]) if va_sz else 0]
+        picked = [[], [], []]
+        b = 0
+        for j in range(2):  # 测试、验证依次取，剩下的全给训练
+            while len(picked[j]) < need[j] and b < len(blocks) - (2 - j):
+                picked[j] += blocks[order[b]].tolist()
+                b += 1
+        for bb in order[b:]:
+            picked[2] += blocks[bb].tolist()
+
+        te = (index[pre & (sid == k)], np.asarray(picked[0], dtype=np.int64))
+        va = (index[pre & np.isin(sid, va_sz)], np.asarray(picked[1], dtype=np.int64)) \
             if va_sz else (index[:0], index[:0])
-        tr = (index[pre & np.isin(sid, tr_sz)], index[bg & ~np.isin(own, [k] + list(va_sz))])
+        tr = (index[pre & np.isin(sid, tr_sz)], np.asarray(picked[2], dtype=np.int64))
 
         f = _fold(k, tr, va, te, seed + k)
-        pool = index[(sid != k) & (own != k)]
+        pool = np.setdiff1d(index, np.concatenate([te[0], te[1]]))
         pool = pool[np.argsort(cen[pool])]
         m = int(round(len(pool) * enc_val)) if enc_val else 0
         f["auto_encoder_idx"] = pool[:len(pool) - m]
@@ -545,3 +588,397 @@ def split_train_test(metadata, val: float = None, mode="expanding", base=1, seed
             row += ("%d/%d" % (len(f["auto_encoder_idx"]), len(f["auto_encoder_val_idx"])),)
         print(fmt % row)
     return folds
+
+
+def train_val_test(elec_names, meta, windows, seed, val=(0.1, 0.2), method="LOOCV"):
+    """按电极、按折切分好的张量，dataset[elec][fold][key]"""
+    dataset = []
+    for elec in elec_names:
+        data_set = split_train_test(meta[elec], seed=seed, val=val, method=method)
+        elec_list = []
+        for fold in range(len(data_set)):
+            encoder_train_idx = data_set[fold]["auto_encoder_idx"]
+            encoder_val_idx = data_set[fold]["auto_encoder_val_idx"]
+            train_idx = data_set[fold]["train_idx"]
+            val_idx = data_set[fold]["val_idx"]
+            test_idx = data_set[fold]["test_idx"]
+            wins_and_label = {}
+
+            # 原始窗口 -> 升维 -> 张量 float32
+            wins_and_label["encoder_train_wins"] = torch.tensor(windows[elec][encoder_train_idx][:, None, :], dtype=torch.float32)
+            wins_and_label["encoder_val_wins"] = torch.tensor(windows[elec][encoder_val_idx][:, None, :], dtype=torch.float32)
+            wins_and_label["train_wins"] = torch.tensor(windows[elec][train_idx][:, None, :], dtype=torch.float32)
+            wins_and_label["y_train"] = torch.tensor(meta[elec].iloc[train_idx].label.to_numpy(), dtype=torch.float32).unsqueeze(1)
+            wins_and_label["val_wins"] = torch.tensor(windows[elec][val_idx][:, None, :], dtype=torch.float32)
+            wins_and_label["y_val"] = torch.tensor(meta[elec].iloc[val_idx].label.to_numpy(), dtype=torch.float32).unsqueeze(1)
+            wins_and_label["test_wins"] = torch.tensor(windows[elec][test_idx][:, None, :], dtype=torch.float32)
+            wins_and_label["y_test"] = torch.tensor(meta[elec].iloc[test_idx].label.to_numpy(), dtype=torch.float32).unsqueeze(1)
+
+            elec_list.append(wins_and_label)
+
+        dataset.append(elec_list)
+    return dataset
+
+
+def train_elec_model(model, optimizer, loss_function, dataset, elec_idx, elec_names, weight_dir,
+                     device="cuda", patience=5, epochs=30, batch_size=32):
+    """训练单电极模型，返回 (权重路径列表, 日志字典)"""
+    model.to(device)
+    now = datetime.now().strftime("%y%m_%d_%H%M%S")
+    weight_dir = Path(weight_dir)
+    fold_paths = []
+    fold_logs = {}
+
+    for fold in range(len(dataset[elec_idx])):
+        train_dataloader = DataLoader(TensorDataset(dataset[elec_idx][fold]["train_wins"], dataset[elec_idx][fold]["y_train"]), batch_size=batch_size, shuffle=True)
+        val_dataloader = DataLoader(TensorDataset(dataset[elec_idx][fold]["val_wins"], dataset[elec_idx][fold]["y_val"]), batch_size=batch_size, shuffle=False)
+
+        patience_counter = 0
+        best_val_loss = float("inf")
+        best_model_state = None
+        fold_logs[f"fold_{fold + 1}"] = {"epochs": []}
+
+        for epoch in range(epochs):
+            start_time = time.time()
+            train_loss = 0
+            val_loss = 0
+
+            model.train()
+            for (x, y) in train_dataloader:
+                x, y = x.to("cuda"), y.to("cuda")
+                optimizer.zero_grad()
+                out = model(x)
+                loss = loss_function(out, y)
+                loss.backward()
+                optimizer.step()
+                train_loss += loss.item()
+
+            avg_train_loss = train_loss / len(train_dataloader)
+
+            model.eval()
+            with torch.no_grad():
+                val_targets = []
+                val_probs = []
+                for (x, y) in val_dataloader:
+                    x, y = x.to("cuda"), y.to("cuda")
+                    out = model(x)
+                    loss = loss_function(out, y)
+                    val_loss += loss.item()
+                    probs = torch.sigmoid(out)
+                    val_probs.extend(probs.cpu().numpy().flatten())
+                    val_targets.extend(y.cpu().numpy().flatten())
+
+            avg_val_loss = val_loss / len(val_dataloader)
+            val_auc = roc_auc_score(val_targets, val_probs)
+
+            end_time = time.time()
+            fold_logs[f"fold_{fold + 1}"]["epochs"].append({
+                "epoch": epoch + 1,
+                "train_loss": round(avg_train_loss, 6),
+                "val_loss": round(avg_val_loss, 6),
+                "val_auc": round(val_auc, 4),
+                "time": round(end_time - start_time, 2)
+            })
+
+            print(f"Epoch [{epoch+1:02d}/{epochs}] | "
+                  f"Train Loss: {avg_train_loss:.2e} | "
+                  f"Val Loss: {avg_val_loss:.2e} | "
+                  f"Val AUC: {val_auc:.4f} | "
+                  f"Time: {end_time - start_time:.1f}s")
+
+            if avg_val_loss < best_val_loss:
+                best_val_loss = avg_val_loss
+                patience_counter = 0
+                best_model_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
+            else:
+                patience_counter += 1
+                if patience_counter == patience:
+                    print("Early Stopping")
+                    fold_logs[f"fold_{fold + 1}"]["early_stop_epoch"] = epoch + 1
+                    break
+
+        if best_model_state is not None:
+            path = weight_dir / f"{now}_{elec_names[elec_idx]}_fold{fold+1}.pth"
+            fold_paths.append(path)
+            torch.save(best_model_state, path)
+            fold_logs[f"fold_{fold + 1}"]["weight_path"] = path
+            fold_logs[f"fold_{fold + 1}"]["best_val_loss"] = round(best_val_loss, 6)
+
+    return fold_paths, fold_logs
+
+
+def train_elec_atten(dataset, path, **kwargs):
+    """用各电极的验证集概率训练电极级融合模型，返回每折一个 ElecAfterMultiHeadAttention"""
+    from models import ConvBILSTMClassify, ElecAfterMultiHeadAttention
+
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        weights = data["weights"]
+        config = data["config"]
+
+    n_folds = len(weights) // 6
+    weights_folds = [[] for _ in range(n_folds)]
+    for p in weights:
+        p = Path(p)
+        for i in range(n_folds):
+            if f"fold{i+1}" in p.name:
+                weights_folds[i].append(p)
+
+    fusion_models = []
+    for i, wf_list in enumerate(weights_folds):
+        print(f"正在训练第{i}折的融合模型...")
+
+        models = []
+        for j, wf in enumerate(wf_list):
+            model = ConvBILSTMClassify(
+                channal_attention=config.get("channal_attention", False),
+                temporal_attention=config.get("temporal_attention", False),
+                dropout=config.get("dropout", 0.5),
+                hidden_size=config.get("hidden_size", 10)
+            ).to("cuda")
+            model.load_state_dict(torch.load(wf))
+            model.eval()
+            models.append(model)
+
+        val_elec_probs = []
+        val_targets = None
+        for j in range(6):
+            val_loader = DataLoader(TensorDataset(dataset[j][i]["val_wins"], dataset[j][i]["y_val"]), batch_size=64, shuffle=False)
+            probs, targets = [], []
+            with torch.no_grad():
+                for x, y in val_loader:
+                    p = models[j](x.to("cuda")).sigmoid().cpu().numpy().flatten()
+                    probs.extend(p)
+                    targets.extend(y.numpy().flatten())
+            val_elec_probs.append(probs)
+            val_targets = targets
+
+        val_tensor = torch.tensor(np.array(val_elec_probs).T, dtype=torch.float32).unsqueeze(-1).cuda()
+        y_val_tensor = torch.tensor(val_targets, dtype=torch.float32).cuda().unsqueeze(-1)
+
+        elec_atten = ElecAfterMultiHeadAttention().to("cuda")
+        optimizer = torch.optim.Adam(elec_atten.parameters(), lr=1e-3)
+        criterion = torch.nn.BCELoss()
+
+        for epoch in range(50):
+            elec_atten.train()
+            optimizer.zero_grad()
+            preds = elec_atten(val_tensor)
+            loss = criterion(preds, y_val_tensor)
+            loss.backward()
+            optimizer.step()
+
+        elec_atten.eval()
+        fusion_models.append(elec_atten)
+
+    return fusion_models
+
+
+def evaluate_classification(y_true, y_prob, threshold=0.5):
+    """
+    计算二分类模型的各种评估指标
+    :param y_true: 真实标签 (numpy array 或 list, 形状 1D)
+    :param y_prob: 预测概率 (numpy array 或 list, 形状 1D)
+    :param threshold: 判定阳性的阈值，默认 0.5
+    :return: 包含各项指标的字典
+    """
+    y_true = np.array(y_true).flatten()
+    y_prob = np.array(y_prob).flatten()
+
+    y_pred = (y_prob >= threshold).astype(int)
+
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred, labels=[0, 1]).ravel()
+
+    auc = roc_auc_score(y_true, y_prob)
+    acc = accuracy_score(y_true, y_pred)
+    precision = precision_score(y_true, y_pred, zero_division=0)
+
+    # 敏感度 (Sensitivity) = 召回率 (Recall) = TP / (TP + FN)
+    sensitivity = recall_score(y_true, y_pred, zero_division=0)
+    # 特异度 (Specificity) = TN / (TN + FP)
+    specificity = tn / (tn + fp) if (tn + fp) > 0 else 0.0
+
+    f1 = f1_score(y_true, y_pred, zero_division=0)
+    bal_acc = (sensitivity + specificity) / 2  # 平衡准确率
+
+    print("=" * 40)
+    print(f"📊 分类评估指标 (Threshold = {threshold})")
+    print("=" * 40)
+    print(f"测试集样本数: {len(y_true)} (阳性 {tp+fn} / 阴性 {tn+fp})")
+    print(f"AUC-ROC     : {auc:.4f}")
+    print(f"Accuracy    : {acc:.4f}")
+    print(f"Balanced Acc: {bal_acc:.4f}")
+    print(f"Sensitivity : {sensitivity:.4f} (Recall)")
+    print(f"Specificity : {specificity:.4f}")
+    print(f"Precision   : {precision:.4f}")
+    print(f"F1-Score    : {f1:.4f}")
+    print("-" * 40)
+    print(f"混淆矩阵: TP={tp}, FP={fp}, TN={tn}, FN={fn}")
+    print("=" * 40)
+
+    # json.dump：只能写入python的内建类型
+    return {
+        "auc": float(auc),
+        "accuracy": float(acc),
+        "balanced_acc": float(bal_acc),
+        "sensitivity": float(sensitivity),
+        "specificity": float(specificity),
+        "precision": float(precision),
+        "f1": float(f1),
+        "tp": int(tp), "fp": int(fp), "tn": int(tn), "fn": int(fn),
+    }
+
+
+def parse_date(date):
+    """
+    date:如 261028
+    """
+    date = str(date)
+    if len(date) != 6:
+        print("请输入正确格式的日期，如'261028'")
+        return None
+    year_month = date[:4]
+    day = date[-2:]
+    ym_d = year_month + "_" + day
+    return ym_d
+
+
+def match_config(config: dict, query: dict):
+    """config：日志中的配置；query：查询配置"""
+    for k, v in query.items():
+        if k not in config:
+            print(f"config中没有参数:{k}")
+            return False
+        config_v = config[k]
+        # 只有数字才比较；bool是一种特殊的int，因此要额外排除
+        if isinstance(config_v, (int, float)) and not isinstance(config_v, bool) \
+           and isinstance(v, (int, float)) and not isinstance(v, bool):
+            if math.isclose(config_v, v, rel_tol=1e-4):
+                continue
+            else:
+                return False
+        else:
+            if config_v != v:
+                return False
+    return True
+
+
+def find_weights(log_dir, date=None, **kwargs):
+    """在 log_dir 下按配置筛权重清单，返回 [{"path","config","n_weights","mtime"}]，按 mtime 降序"""
+    log_dir = Path(log_dir)
+    if date:
+        json_paths = [
+            p for p in log_dir.glob("*.json")
+            if parse_date(date) and parse_date(date) in p.name
+        ]
+    else:
+        json_paths = [p for p in log_dir.glob("*.json")]
+
+    matches = []
+    for p in json_paths:
+        try:
+            with open(p, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except:
+            print("json解析失败")
+            continue
+
+        if not match_config(data["config"], kwargs):
+            continue
+
+        matches.append({
+            "path": p,
+            "config": data["config"],
+            "n_weights": len(data.get("weights", [])),
+            "mtime": p.stat().st_mtime,
+        })
+
+    matches.sort(key=lambda x: x["mtime"], reverse=True)
+    return matches
+
+
+def test_elec_model(dataset, fusion_models, path=None, date=None, log_dir=None, **kwargs):
+    """按 manifest 里的权重测每一折，单电极和电极融合的指标都写回 manifest 的 test_index"""
+    from models import ConvBILSTMClassify
+
+    if not path:
+        matches = find_weights(log_dir, date=date, **kwargs)
+        if len(matches) != 1:
+            print("请增加限制参数，matches中只能有一个路径")
+            return None
+        path = matches[0]["path"]
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            weights = data["weights"]
+            config = data["config"]
+    except:
+        print("无法打开json文件")
+        return None
+
+    if "test_index" not in data:
+        data["test_index"] = []
+
+    n_folds = len(weights) // 6
+    weights_folds = [[] for _ in range(n_folds)]
+    for p in weights:
+        p = Path(p)
+        for i in range(n_folds):
+            if f"fold{i+1}" in p.name:
+                weights_folds[i].append(p)
+
+    for i, wf_list in enumerate(weights_folds):
+        print(f"正在测试第{i}折")
+        results = []
+        results_atten = []
+
+        all_elec_probs = []
+        all_targets = None
+
+        for j, wf in enumerate(wf_list):
+            conv_bi_lstm = ConvBILSTMClassify(
+                channal_attention=config.get("channal_attention", False),
+                temporal_attention=config.get("temporal_attention", False),
+                dropout=config.get("dropout", 0.5),
+                hidden_size=config.get("hidden_size", 10)
+            ).to("cuda")
+            conv_bi_lstm.load_state_dict(torch.load(wf))
+
+            test_dataloader = DataLoader(TensorDataset(
+                dataset[j][i]["test_wins"],
+                dataset[j][i]["y_test"]
+            ), batch_size=32, shuffle=False)
+
+            all_probs = []
+            targets = []
+            conv_bi_lstm.eval()
+            with torch.no_grad():
+                for (x, y) in test_dataloader:
+                    x, y = x.to("cuda"), y.to("cuda")
+                    probs = conv_bi_lstm(x).sigmoid()
+                    all_probs.extend(probs.cpu().numpy().flatten())
+                    targets.extend(y.cpu().numpy().flatten())
+
+            metrics = evaluate_classification(targets, all_probs)
+            results.append(metrics)
+
+            all_elec_probs.append(all_probs)
+            all_targets = targets
+
+        all_probs_tensor = torch.tensor(np.array(all_elec_probs).T, dtype=torch.float32).unsqueeze(-1).cuda()
+        elec_atten = fusion_models[i]
+        with torch.no_grad():
+            all_probs_atten = elec_atten(all_probs_tensor).cpu().numpy().flatten()
+
+        metrics_atten = evaluate_classification(all_targets, all_probs_atten)
+        results_atten.append(metrics_atten)
+
+        data["test_index"].append({
+            "fold": i,
+            "metrics": results,
+            "metrics_atten": results_atten
+        })
+
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
