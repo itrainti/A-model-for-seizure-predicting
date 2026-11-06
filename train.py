@@ -186,12 +186,15 @@ def train_val_test(elec_names, meta, windows, seed, val=(encoder_val, classfy_va
 
 def train_elec_model(model, optimizer, loss_function, dataset, elec_idx, device='cuda', patience=5, epochs=30):
     model.to(device)
+    init_state = {k: v.clone() for k, v in model.state_dict().items()}
     now = datetime.now().strftime("%y%m_%d_%H%M%S")
     fold_paths = []
     fold_logs = {}
 
 
     for fold in range(len(dataset[elec_idx])):
+        model.load_state_dict(init_state)  # 每折从初始化重新开始，避免跨折带权重
+        optimizer.state.clear()
         train_dataloader = DataLoader(TensorDataset(dataset[elec_idx][fold]["train_wins"], dataset[elec_idx][fold]["y_train"]), batch_size=batch_size, shuffle=True)
         val_dataloader = DataLoader(TensorDataset(dataset[elec_idx][fold]["val_wins"], dataset[elec_idx][fold]["y_val"]), batch_size=batch_size, shuffle=False)
 

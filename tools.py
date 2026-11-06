@@ -624,12 +624,15 @@ def train_elec_model(model, optimizer, loss_function, dataset, elec_idx, elec_na
                      device="cuda", patience=5, epochs=30, batch_size=32):
     """训练单电极模型，返回 (权重路径列表, 日志字典)"""
     model.to(device)
+    init_state = {k: v.clone() for k, v in model.state_dict().items()}
     now = datetime.now().strftime("%y%m_%d_%H%M%S")
     weight_dir = Path(weight_dir)
     fold_paths = []
     fold_logs = {}
 
     for fold in range(len(dataset[elec_idx])):
+        model.load_state_dict(init_state)  # 每折从初始化重新开始，避免跨折带权重
+        optimizer.state.clear()
         train_dataloader = DataLoader(TensorDataset(dataset[elec_idx][fold]["train_wins"], dataset[elec_idx][fold]["y_train"]), batch_size=batch_size, shuffle=True)
         val_dataloader = DataLoader(TensorDataset(dataset[elec_idx][fold]["val_wins"], dataset[elec_idx][fold]["y_val"]), batch_size=batch_size, shuffle=False)
 
@@ -721,7 +724,7 @@ def train_elec_atten(dataset, path, **kwargs):
     for p in weights:
         p = Path(p)
         for i in range(n_folds):
-            if f"fold{i+1}" in p.name:
+            if f"_fold{i+1}.pth" in p.name:
                 weights_folds[i].append(p)
 
     fusion_models = []
@@ -760,7 +763,7 @@ def train_elec_atten(dataset, path, **kwargs):
         optimizer = torch.optim.Adam(elec_atten.parameters(), lr=1e-3)
         criterion = torch.nn.BCELoss()
 
-        for epoch in range(50):
+        for epoch in range(30):
             elec_atten.train()
             optimizer.zero_grad()
             preds = elec_atten(val_tensor)
@@ -925,7 +928,7 @@ def test_elec_model(dataset, fusion_models, path=None, date=None, log_dir=None, 
     for p in weights:
         p = Path(p)
         for i in range(n_folds):
-            if f"fold{i+1}" in p.name:
+            if f"_fold{i+1}.pth" in p.name:
                 weights_folds[i].append(p)
 
     for i, wf_list in enumerate(weights_folds):
