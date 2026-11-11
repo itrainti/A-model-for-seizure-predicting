@@ -620,6 +620,28 @@ def train_val_test(elec_names, meta, windows, seed, val=(0.1, 0.2), method="LOOC
     return dataset
 
 
+def teacher_train_val_test(elec_names, meta, windows, seed, val=(0.1, 0.1), method="LOOCV"):
+    """教师的划分：只用 ictal(正例) 和 interictal(负例)，preictal 整段丢弃
+    返回 [fold][key]，train_wins/val_wins/test_wins 形状 (n, 电极数, 窗长)，另带 seizure_id
+    """
+    v = val[1] if isinstance(val, (tuple, list)) else val  # 教师没有自编码器，只用第二个
+    m = meta[elec_names[0]].copy()
+    m.loc[m.label == 1, "label"] = 3  # preictal 丢弃
+    m.loc[m.label == 2, "label"] = 1  # ictal 变成正例
+    stack = [windows[e] for e in elec_names]
+    label = m.label.to_numpy()
+
+    dataset = []
+    for f in split_train_test(m, seed=seed, val=v, method=method):
+        fold = {"seizure_id": f["seizure_id"]}
+        for key in ("train", "val", "test"):
+            idx = f[key + "_idx"]
+            fold[key + "_wins"] = torch.tensor(np.stack([w[idx] for w in stack], axis=1), dtype=torch.float32)
+            fold["y_" + key] = torch.tensor(label[idx], dtype=torch.float32).unsqueeze(1)
+        dataset.append(fold)
+    return dataset
+
+
 def train_elec_model(model, optimizer, loss_function, dataset, elec_idx, elec_names, weight_dir,
                      device="cuda", patience=5, epochs=30, batch_size=32):
     """训练单电极模型，返回 (权重路径列表, 日志字典)"""
