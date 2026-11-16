@@ -1,0 +1,79 @@
+{
+    "config": {
+        "learning_rate": 0.001,
+        "batch_size": 32,
+        "patience": 15,
+        "epochs": 150,
+        "seed": 3,
+        "val": 0.1,
+        "window_length": 4,
+        "window_overlap": 2,
+        "sph": 120,
+        "sop": 1800,
+        "interictal_thr": 7200
+    },
+    "weights": [
+        "/content/drive/MyDrive/colab/results/chb08/weight/2611_13_071032_teacher_fold1.pth",
+        "/content/drive/MyDrive/colab/results/chb08/weight/2611_13_071032_teacher_fold2.pth",
+        "/content/drive/MyDrive/colab/results/chb08/weight/2611_13_071032_teacher_fold3.pth",
+        "/content/drive/MyDrive/colab/results/chb08/weight/2611_13_071032_teacher_fold4.pth",
+        "/content/drive/MyDrive/colab/results/chb08/weight/2611_13_071032_teacher_fold5.pth"
+    ],
+    "folds": [
+        {
+            "fold": 1,
+            "seizure_id": 0,
+            "n_train": 548,
+            "n_val": 188,
+            "n_test": 168,
+            "best_epoch": 29,
+            "best_val_loss": 0.2129,
+            "auc": 0.9589,
+            "acc": 0.8869
+        },
+        {
+            "fold": 2,
+            "seizure_id": 1,
+            "n_train": 548,
+            "n_val": 168,
+            "n_test": 188,
+            "best_epoch": 26,
+            "best_val_loss": 0.141,
+            "auc": 0.9789,
+            "acc": 0.8989
+        },
+        {
+            "fold": 3,
+            "seizure_id": 2,
+            "n_train": 584,
+            "n_val": 188,
+            "n_test": 132,
+            "best_epoch": 16,
+            "best_val_loss": 0.1834,
+            "auc": 0.9738,
+            "acc": 0.9167
+        },
+        {
+            "fold": 4,
+            "seizure_id": 3,
+            "n_train": 616,
+            "n_val": 132,
+            "n_test": 156,
+            "best_epoch": 14,
+            "best_val_loss": 0.2475,
+            "auc": 0.9431,
+            "acc": 0.8718
+        },
+        {
+            "fold": 5,
+            "seizure_id": 4,
+            "n_train": 488,
+            "n_val": 156,
+            "n_test": 260,
+            "best_epoch": 2,
+            "best_val_loss": 0.6704,
+            "auc": 0.9556,
+            "acc": 0.6154
+        }
+    ]
+}

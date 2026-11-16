@@ -1,0 +1,1951 @@
+{
+    "config": {
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "patience": 10,
+        "epochs": 30,
+        "channal_attention": true,
+        "temporal_attention": true,
+        "hidden_size": 20
+    },
+    "weights": [
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224616_Fp1-F7_fold1.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224616_Fp1-F7_fold2.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224616_Fp1-F7_fold3.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224634_Fp2-F8_fold1.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224634_Fp2-F8_fold2.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224634_Fp2-F8_fold3.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224650_T7-P7_fold1.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224650_T7-P7_fold2.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224650_T7-P7_fold3.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224706_T8-P8_fold1.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224706_T8-P8_fold2.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224706_T8-P8_fold3.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224719_P7-O1_fold1.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224719_P7-O1_fold2.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224719_P7-O1_fold3.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224735_P8-O2_fold1.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224735_P8-O2_fold2.pth",
+        "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224735_P8-O2_fold3.pth"
+    ],
+    "logs": {
+        "Fp1-F7": {
+            "fold_1": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.688432,
+                        "val_loss": 0.693736,
+                        "val_auc": 0.5988,
+                        "time": 1.29
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.67689,
+                        "val_loss": 0.694633,
+                        "val_auc": 0.5031,
+                        "time": 0.4
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.661938,
+                        "val_loss": 0.692311,
+                        "val_auc": 0.4368,
+                        "time": 0.39
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.641409,
+                        "val_loss": 0.699718,
+                        "val_auc": 0.4337,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.612196,
+                        "val_loss": 0.708686,
+                        "val_auc": 0.4306,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.581447,
+                        "val_loss": 0.724589,
+                        "val_auc": 0.4322,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.541868,
+                        "val_loss": 0.738847,
+                        "val_auc": 0.4352,
+                        "time": 0.36
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.501986,
+                        "val_loss": 0.762684,
+                        "val_auc": 0.4377,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.465272,
+                        "val_loss": 0.786925,
+                        "val_auc": 0.4434,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.421586,
+                        "val_loss": 0.81679,
+                        "val_auc": 0.443,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.381922,
+                        "val_loss": 0.846832,
+                        "val_auc": 0.4466,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.346357,
+                        "val_loss": 0.879302,
+                        "val_auc": 0.4375,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.310241,
+                        "val_loss": 0.91183,
+                        "val_auc": 0.4445,
+                        "time": 0.35
+                    }
+                ],
+                "early_stop_epoch": 13,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224616_Fp1-F7_fold1.pth",
+                "best_val_loss": 0.692311
+            },
+            "fold_2": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.280513,
+                        "val_loss": 0.701779,
+                        "val_auc": 0.6249,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.260709,
+                        "val_loss": 0.71092,
+                        "val_auc": 0.623,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.252359,
+                        "val_loss": 0.829381,
+                        "val_auc": 0.6257,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.224525,
+                        "val_loss": 0.732706,
+                        "val_auc": 0.616,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.225055,
+                        "val_loss": 0.761175,
+                        "val_auc": 0.6247,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.218417,
+                        "val_loss": 0.77807,
+                        "val_auc": 0.6258,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.210726,
+                        "val_loss": 0.807867,
+                        "val_auc": 0.6308,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.206035,
+                        "val_loss": 0.79658,
+                        "val_auc": 0.6249,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.192143,
+                        "val_loss": 0.809244,
+                        "val_auc": 0.6323,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.181258,
+                        "val_loss": 0.812346,
+                        "val_auc": 0.6308,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.189691,
+                        "val_loss": 0.835814,
+                        "val_auc": 0.6223,
+                        "time": 0.32
+                    }
+                ],
+                "early_stop_epoch": 11,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224616_Fp1-F7_fold2.pth",
+                "best_val_loss": 0.701779
+            },
+            "fold_3": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.720179,
+                        "val_loss": 0.920012,
+                        "val_auc": 0.4527,
+                        "time": 0.5
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.606669,
+                        "val_loss": 0.894864,
+                        "val_auc": 0.4305,
+                        "time": 0.48
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.577619,
+                        "val_loss": 0.870965,
+                        "val_auc": 0.4196,
+                        "time": 0.49
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.571686,
+                        "val_loss": 0.876078,
+                        "val_auc": 0.4185,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.564084,
+                        "val_loss": 0.894678,
+                        "val_auc": 0.4133,
+                        "time": 0.48
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.552513,
+                        "val_loss": 0.881464,
+                        "val_auc": 0.4195,
+                        "time": 0.48
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.547929,
+                        "val_loss": 0.880816,
+                        "val_auc": 0.4025,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.551224,
+                        "val_loss": 0.858182,
+                        "val_auc": 0.4154,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.53685,
+                        "val_loss": 0.901056,
+                        "val_auc": 0.4008,
+                        "time": 0.49
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.544958,
+                        "val_loss": 0.891461,
+                        "val_auc": 0.3929,
+                        "time": 0.48
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.53755,
+                        "val_loss": 0.935523,
+                        "val_auc": 0.3966,
+                        "time": 0.49
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.526487,
+                        "val_loss": 0.884368,
+                        "val_auc": 0.3994,
+                        "time": 0.48
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.519724,
+                        "val_loss": 0.905768,
+                        "val_auc": 0.4011,
+                        "time": 0.47
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.513189,
+                        "val_loss": 0.922781,
+                        "val_auc": 0.3938,
+                        "time": 0.47
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.518613,
+                        "val_loss": 0.889665,
+                        "val_auc": 0.4009,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 16,
+                        "train_loss": 0.510165,
+                        "val_loss": 0.933901,
+                        "val_auc": 0.3878,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 17,
+                        "train_loss": 0.509397,
+                        "val_loss": 0.949764,
+                        "val_auc": 0.3831,
+                        "time": 0.65
+                    },
+                    {
+                        "epoch": 18,
+                        "train_loss": 0.502111,
+                        "val_loss": 0.957524,
+                        "val_auc": 0.3848,
+                        "time": 0.47
+                    }
+                ],
+                "early_stop_epoch": 18,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224616_Fp1-F7_fold3.pth",
+                "best_val_loss": 0.858182
+            }
+        },
+        "Fp2-F8": {
+            "fold_1": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.685072,
+                        "val_loss": 0.693277,
+                        "val_auc": 0.5849,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.671658,
+                        "val_loss": 0.693114,
+                        "val_auc": 0.4594,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.650853,
+                        "val_loss": 0.695157,
+                        "val_auc": 0.3717,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.624836,
+                        "val_loss": 0.716332,
+                        "val_auc": 0.3542,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.595916,
+                        "val_loss": 0.733257,
+                        "val_auc": 0.3428,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.559558,
+                        "val_loss": 0.75321,
+                        "val_auc": 0.3377,
+                        "time": 0.36
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.517618,
+                        "val_loss": 0.778711,
+                        "val_auc": 0.3326,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.482035,
+                        "val_loss": 0.821522,
+                        "val_auc": 0.3278,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.431025,
+                        "val_loss": 0.85495,
+                        "val_auc": 0.3284,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.394573,
+                        "val_loss": 0.87252,
+                        "val_auc": 0.3543,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.36178,
+                        "val_loss": 0.978935,
+                        "val_auc": 0.3148,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.333893,
+                        "val_loss": 0.946347,
+                        "val_auc": 0.3593,
+                        "time": 0.34
+                    }
+                ],
+                "early_stop_epoch": 12,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224634_Fp2-F8_fold1.pth",
+                "best_val_loss": 0.693114
+            },
+            "fold_2": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.299325,
+                        "val_loss": 0.689826,
+                        "val_auc": 0.6229,
+                        "time": 0.29
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.279868,
+                        "val_loss": 0.688022,
+                        "val_auc": 0.6317,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.268602,
+                        "val_loss": 0.718246,
+                        "val_auc": 0.6229,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.260918,
+                        "val_loss": 0.698147,
+                        "val_auc": 0.6416,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.262153,
+                        "val_loss": 0.747013,
+                        "val_auc": 0.6187,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.242427,
+                        "val_loss": 0.787599,
+                        "val_auc": 0.613,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.235169,
+                        "val_loss": 0.739114,
+                        "val_auc": 0.6365,
+                        "time": 0.28
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.227134,
+                        "val_loss": 0.777882,
+                        "val_auc": 0.6238,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.242284,
+                        "val_loss": 0.758475,
+                        "val_auc": 0.636,
+                        "time": 0.29
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.219027,
+                        "val_loss": 0.812247,
+                        "val_auc": 0.6174,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.226878,
+                        "val_loss": 0.843143,
+                        "val_auc": 0.6129,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.206306,
+                        "val_loss": 0.764376,
+                        "val_auc": 0.643,
+                        "time": 0.31
+                    }
+                ],
+                "early_stop_epoch": 12,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224634_Fp2-F8_fold2.pth",
+                "best_val_loss": 0.688022
+            },
+            "fold_3": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.718923,
+                        "val_loss": 1.017311,
+                        "val_auc": 0.2956,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.585161,
+                        "val_loss": 1.017371,
+                        "val_auc": 0.3458,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.555406,
+                        "val_loss": 0.983281,
+                        "val_auc": 0.3802,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.542067,
+                        "val_loss": 0.896134,
+                        "val_auc": 0.3751,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.541152,
+                        "val_loss": 0.977888,
+                        "val_auc": 0.3887,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.533065,
+                        "val_loss": 1.001721,
+                        "val_auc": 0.4018,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.516131,
+                        "val_loss": 0.850271,
+                        "val_auc": 0.4125,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.512172,
+                        "val_loss": 0.886216,
+                        "val_auc": 0.412,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.50538,
+                        "val_loss": 0.923382,
+                        "val_auc": 0.4117,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.500942,
+                        "val_loss": 0.982442,
+                        "val_auc": 0.4076,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.50158,
+                        "val_loss": 0.972189,
+                        "val_auc": 0.3966,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.494764,
+                        "val_loss": 0.920586,
+                        "val_auc": 0.4058,
+                        "time": 0.47
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.495085,
+                        "val_loss": 1.00459,
+                        "val_auc": 0.4016,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.48235,
+                        "val_loss": 1.042799,
+                        "val_auc": 0.3867,
+                        "time": 0.73
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.483809,
+                        "val_loss": 0.885626,
+                        "val_auc": 0.4265,
+                        "time": 0.6
+                    },
+                    {
+                        "epoch": 16,
+                        "train_loss": 0.485301,
+                        "val_loss": 1.044865,
+                        "val_auc": 0.3964,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 17,
+                        "train_loss": 0.484244,
+                        "val_loss": 1.025575,
+                        "val_auc": 0.3942,
+                        "time": 0.48
+                    }
+                ],
+                "early_stop_epoch": 17,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224634_Fp2-F8_fold3.pth",
+                "best_val_loss": 0.850271
+            }
+        },
+        "T7-P7": {
+            "fold_1": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.68486,
+                        "val_loss": 0.694012,
+                        "val_auc": 0.5824,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.660247,
+                        "val_loss": 0.694998,
+                        "val_auc": 0.5771,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.631159,
+                        "val_loss": 0.699289,
+                        "val_auc": 0.4188,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.592374,
+                        "val_loss": 0.711648,
+                        "val_auc": 0.4245,
+                        "time": 0.29
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.547956,
+                        "val_loss": 0.723956,
+                        "val_auc": 0.4254,
+                        "time": 0.29
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.500929,
+                        "val_loss": 0.742697,
+                        "val_auc": 0.4266,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.451794,
+                        "val_loss": 0.776536,
+                        "val_auc": 0.4281,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.408319,
+                        "val_loss": 0.810765,
+                        "val_auc": 0.4288,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.364157,
+                        "val_loss": 0.84569,
+                        "val_auc": 0.4284,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.325462,
+                        "val_loss": 0.880613,
+                        "val_auc": 0.4284,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.306781,
+                        "val_loss": 0.92338,
+                        "val_auc": 0.4285,
+                        "time": 0.28
+                    }
+                ],
+                "early_stop_epoch": 11,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224650_T7-P7_fold1.pth",
+                "best_val_loss": 0.694012
+            },
+            "fold_2": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.270605,
+                        "val_loss": 0.653405,
+                        "val_auc": 0.7242,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.245638,
+                        "val_loss": 0.67127,
+                        "val_auc": 0.7238,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.231066,
+                        "val_loss": 0.694694,
+                        "val_auc": 0.7231,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.219821,
+                        "val_loss": 0.699184,
+                        "val_auc": 0.7242,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.203283,
+                        "val_loss": 0.704663,
+                        "val_auc": 0.7233,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.19778,
+                        "val_loss": 0.710751,
+                        "val_auc": 0.7246,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.187519,
+                        "val_loss": 0.732556,
+                        "val_auc": 0.7222,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.18308,
+                        "val_loss": 0.746215,
+                        "val_auc": 0.7232,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.176853,
+                        "val_loss": 0.761855,
+                        "val_auc": 0.7219,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.171295,
+                        "val_loss": 0.760137,
+                        "val_auc": 0.7227,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.172515,
+                        "val_loss": 0.765922,
+                        "val_auc": 0.7245,
+                        "time": 0.3
+                    }
+                ],
+                "early_stop_epoch": 11,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224650_T7-P7_fold2.pth",
+                "best_val_loss": 0.653405
+            },
+            "fold_3": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.64038,
+                        "val_loss": 1.044087,
+                        "val_auc": 0.4071,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.578297,
+                        "val_loss": 0.997446,
+                        "val_auc": 0.4076,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.567174,
+                        "val_loss": 0.974149,
+                        "val_auc": 0.4079,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.557535,
+                        "val_loss": 0.938118,
+                        "val_auc": 0.4077,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.554854,
+                        "val_loss": 0.933205,
+                        "val_auc": 0.4074,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.551364,
+                        "val_loss": 0.946075,
+                        "val_auc": 0.4077,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.564035,
+                        "val_loss": 0.950844,
+                        "val_auc": 0.4073,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.553267,
+                        "val_loss": 0.961567,
+                        "val_auc": 0.4075,
+                        "time": 0.49
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.562641,
+                        "val_loss": 0.902289,
+                        "val_auc": 0.4064,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.55682,
+                        "val_loss": 0.918653,
+                        "val_auc": 0.4068,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.547642,
+                        "val_loss": 0.930265,
+                        "val_auc": 0.4062,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.553115,
+                        "val_loss": 0.94254,
+                        "val_auc": 0.4074,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.554972,
+                        "val_loss": 0.951878,
+                        "val_auc": 0.4069,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.553524,
+                        "val_loss": 0.923908,
+                        "val_auc": 0.4053,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.551011,
+                        "val_loss": 0.95611,
+                        "val_auc": 0.4064,
+                        "time": 0.68
+                    },
+                    {
+                        "epoch": 16,
+                        "train_loss": 0.554071,
+                        "val_loss": 0.975914,
+                        "val_auc": 0.406,
+                        "time": 0.47
+                    },
+                    {
+                        "epoch": 17,
+                        "train_loss": 0.554868,
+                        "val_loss": 0.971007,
+                        "val_auc": 0.4077,
+                        "time": 0.4
+                    },
+                    {
+                        "epoch": 18,
+                        "train_loss": 0.547611,
+                        "val_loss": 0.960636,
+                        "val_auc": 0.4059,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 19,
+                        "train_loss": 0.546914,
+                        "val_loss": 0.964695,
+                        "val_auc": 0.4069,
+                        "time": 0.43
+                    }
+                ],
+                "early_stop_epoch": 19,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224650_T7-P7_fold3.pth",
+                "best_val_loss": 0.902289
+            }
+        },
+        "T8-P8": {
+            "fold_1": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.657135,
+                        "val_loss": 0.69464,
+                        "val_auc": 0.3218,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.624235,
+                        "val_loss": 0.700223,
+                        "val_auc": 0.3408,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.579866,
+                        "val_loss": 0.699126,
+                        "val_auc": 0.5354,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.531217,
+                        "val_loss": 0.692384,
+                        "val_auc": 0.5744,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.474471,
+                        "val_loss": 0.702118,
+                        "val_auc": 0.5628,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.427158,
+                        "val_loss": 0.717161,
+                        "val_auc": 0.5526,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.380208,
+                        "val_loss": 0.728774,
+                        "val_auc": 0.5502,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.337092,
+                        "val_loss": 0.757095,
+                        "val_auc": 0.5421,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.303706,
+                        "val_loss": 0.792731,
+                        "val_auc": 0.5322,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.276748,
+                        "val_loss": 0.829169,
+                        "val_auc": 0.5244,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.25224,
+                        "val_loss": 0.864299,
+                        "val_auc": 0.5164,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.228341,
+                        "val_loss": 0.894886,
+                        "val_auc": 0.5135,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.218935,
+                        "val_loss": 0.946927,
+                        "val_auc": 0.5025,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.190676,
+                        "val_loss": 0.98458,
+                        "val_auc": 0.4978,
+                        "time": 0.3
+                    }
+                ],
+                "early_stop_epoch": 14,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224706_T8-P8_fold1.pth",
+                "best_val_loss": 0.692384
+            },
+            "fold_2": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.185124,
+                        "val_loss": 0.691431,
+                        "val_auc": 0.7098,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.186332,
+                        "val_loss": 0.701259,
+                        "val_auc": 0.7076,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.165887,
+                        "val_loss": 0.718079,
+                        "val_auc": 0.7075,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.163857,
+                        "val_loss": 0.737253,
+                        "val_auc": 0.7088,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.160695,
+                        "val_loss": 0.741676,
+                        "val_auc": 0.7079,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.15267,
+                        "val_loss": 0.751426,
+                        "val_auc": 0.7081,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.152969,
+                        "val_loss": 0.756829,
+                        "val_auc": 0.7055,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.148258,
+                        "val_loss": 0.765195,
+                        "val_auc": 0.7074,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.144229,
+                        "val_loss": 0.780238,
+                        "val_auc": 0.7063,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.143226,
+                        "val_loss": 0.799223,
+                        "val_auc": 0.7072,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.131999,
+                        "val_loss": 0.822995,
+                        "val_auc": 0.7077,
+                        "time": 0.31
+                    }
+                ],
+                "early_stop_epoch": 11,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224706_T8-P8_fold2.pth",
+                "best_val_loss": 0.691431
+            },
+            "fold_3": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.672609,
+                        "val_loss": 1.164039,
+                        "val_auc": 0.3991,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.5676,
+                        "val_loss": 1.084686,
+                        "val_auc": 0.4079,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.549443,
+                        "val_loss": 1.117545,
+                        "val_auc": 0.4109,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.54167,
+                        "val_loss": 1.120748,
+                        "val_auc": 0.4187,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.538311,
+                        "val_loss": 1.140171,
+                        "val_auc": 0.4267,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.545233,
+                        "val_loss": 1.112568,
+                        "val_auc": 0.4207,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.544204,
+                        "val_loss": 1.146921,
+                        "val_auc": 0.4329,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.536762,
+                        "val_loss": 1.155934,
+                        "val_auc": 0.4237,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.535851,
+                        "val_loss": 1.097224,
+                        "val_auc": 0.4306,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.533332,
+                        "val_loss": 1.125843,
+                        "val_auc": 0.4248,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.529867,
+                        "val_loss": 1.142739,
+                        "val_auc": 0.4277,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.532588,
+                        "val_loss": 1.162821,
+                        "val_auc": 0.4231,
+                        "time": 0.82
+                    }
+                ],
+                "early_stop_epoch": 12,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224706_T8-P8_fold3.pth",
+                "best_val_loss": 1.084686
+            }
+        },
+        "P7-O1": {
+            "fold_1": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.692856,
+                        "val_loss": 0.693044,
+                        "val_auc": 0.5396,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.677352,
+                        "val_loss": 0.692858,
+                        "val_auc": 0.5817,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.65923,
+                        "val_loss": 0.688101,
+                        "val_auc": 0.6144,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.634693,
+                        "val_loss": 0.683467,
+                        "val_auc": 0.6321,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.599867,
+                        "val_loss": 0.678712,
+                        "val_auc": 0.6375,
+                        "time": 0.36
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.556394,
+                        "val_loss": 0.67144,
+                        "val_auc": 0.6469,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.505575,
+                        "val_loss": 0.668846,
+                        "val_auc": 0.6373,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.439975,
+                        "val_loss": 0.661135,
+                        "val_auc": 0.6456,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.383297,
+                        "val_loss": 0.667665,
+                        "val_auc": 0.6528,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.339675,
+                        "val_loss": 0.666714,
+                        "val_auc": 0.648,
+                        "time": 0.29
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.289506,
+                        "val_loss": 0.669629,
+                        "val_auc": 0.6472,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.264484,
+                        "val_loss": 0.679677,
+                        "val_auc": 0.6442,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.246822,
+                        "val_loss": 0.730786,
+                        "val_auc": 0.6201,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.231677,
+                        "val_loss": 0.744081,
+                        "val_auc": 0.609,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.21014,
+                        "val_loss": 0.935707,
+                        "val_auc": 0.5921,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 16,
+                        "train_loss": 0.208616,
+                        "val_loss": 1.015813,
+                        "val_auc": 0.5747,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 17,
+                        "train_loss": 0.189607,
+                        "val_loss": 0.868765,
+                        "val_auc": 0.5632,
+                        "time": 0.28
+                    },
+                    {
+                        "epoch": 18,
+                        "train_loss": 0.179069,
+                        "val_loss": 0.940507,
+                        "val_auc": 0.5599,
+                        "time": 0.31
+                    }
+                ],
+                "early_stop_epoch": 18,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224719_P7-O1_fold1.pth",
+                "best_val_loss": 0.661135
+            },
+            "fold_2": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.161119,
+                        "val_loss": 0.618118,
+                        "val_auc": 0.7792,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.160045,
+                        "val_loss": 0.727,
+                        "val_auc": 0.7935,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.141816,
+                        "val_loss": 0.669224,
+                        "val_auc": 0.7928,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.151976,
+                        "val_loss": 0.671657,
+                        "val_auc": 0.7949,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.144055,
+                        "val_loss": 0.68147,
+                        "val_auc": 0.7939,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.140861,
+                        "val_loss": 0.650145,
+                        "val_auc": 0.7902,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.137306,
+                        "val_loss": 0.700722,
+                        "val_auc": 0.7953,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.133264,
+                        "val_loss": 0.776476,
+                        "val_auc": 0.794,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.133098,
+                        "val_loss": 0.783902,
+                        "val_auc": 0.7945,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.122985,
+                        "val_loss": 0.728747,
+                        "val_auc": 0.7926,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.129353,
+                        "val_loss": 0.772883,
+                        "val_auc": 0.7952,
+                        "time": 0.31
+                    }
+                ],
+                "early_stop_epoch": 11,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224719_P7-O1_fold2.pth",
+                "best_val_loss": 0.618118
+            },
+            "fold_3": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.659022,
+                        "val_loss": 1.204908,
+                        "val_auc": 0.4677,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.535799,
+                        "val_loss": 1.074859,
+                        "val_auc": 0.4647,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.531446,
+                        "val_loss": 1.09398,
+                        "val_auc": 0.4558,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.510062,
+                        "val_loss": 1.085167,
+                        "val_auc": 0.4546,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.517528,
+                        "val_loss": 1.019745,
+                        "val_auc": 0.4519,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.518374,
+                        "val_loss": 1.089654,
+                        "val_auc": 0.4482,
+                        "time": 0.48
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.514138,
+                        "val_loss": 1.1022,
+                        "val_auc": 0.4426,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.512099,
+                        "val_loss": 1.077657,
+                        "val_auc": 0.4465,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.494793,
+                        "val_loss": 1.086483,
+                        "val_auc": 0.4464,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.501034,
+                        "val_loss": 1.138966,
+                        "val_auc": 0.4457,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.500973,
+                        "val_loss": 1.139812,
+                        "val_auc": 0.4479,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.510984,
+                        "val_loss": 1.082864,
+                        "val_auc": 0.4402,
+                        "time": 0.73
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.494594,
+                        "val_loss": 1.149159,
+                        "val_auc": 0.4416,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.496378,
+                        "val_loss": 1.123419,
+                        "val_auc": 0.4422,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.497897,
+                        "val_loss": 1.137754,
+                        "val_auc": 0.4408,
+                        "time": 0.41
+                    }
+                ],
+                "early_stop_epoch": 15,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224719_P7-O1_fold3.pth",
+                "best_val_loss": 1.019745
+            }
+        },
+        "P8-O2": {
+            "fold_1": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.68782,
+                        "val_loss": 0.693377,
+                        "val_auc": 0.4504,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.673187,
+                        "val_loss": 0.693073,
+                        "val_auc": 0.5413,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.655155,
+                        "val_loss": 0.691173,
+                        "val_auc": 0.6576,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.628462,
+                        "val_loss": 0.674904,
+                        "val_auc": 0.6611,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.588991,
+                        "val_loss": 0.676752,
+                        "val_auc": 0.6472,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.539763,
+                        "val_loss": 0.667708,
+                        "val_auc": 0.637,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.48919,
+                        "val_loss": 0.668546,
+                        "val_auc": 0.6239,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.427474,
+                        "val_loss": 0.67657,
+                        "val_auc": 0.6143,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.384158,
+                        "val_loss": 0.694004,
+                        "val_auc": 0.5964,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.345832,
+                        "val_loss": 0.703046,
+                        "val_auc": 0.5795,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.298238,
+                        "val_loss": 0.726532,
+                        "val_auc": 0.5672,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.273063,
+                        "val_loss": 0.812055,
+                        "val_auc": 0.5448,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.262439,
+                        "val_loss": 0.845517,
+                        "val_auc": 0.491,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.232691,
+                        "val_loss": 0.933066,
+                        "val_auc": 0.5101,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.211761,
+                        "val_loss": 0.886025,
+                        "val_auc": 0.4755,
+                        "time": 0.33
+                    },
+                    {
+                        "epoch": 16,
+                        "train_loss": 0.211836,
+                        "val_loss": 0.940191,
+                        "val_auc": 0.4792,
+                        "time": 0.3
+                    }
+                ],
+                "early_stop_epoch": 16,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224735_P8-O2_fold1.pth",
+                "best_val_loss": 0.667708
+            },
+            "fold_2": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.189155,
+                        "val_loss": 0.624947,
+                        "val_auc": 0.7513,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.185437,
+                        "val_loss": 0.616233,
+                        "val_auc": 0.7562,
+                        "time": 0.35
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.177641,
+                        "val_loss": 0.645768,
+                        "val_auc": 0.7545,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.158929,
+                        "val_loss": 0.689686,
+                        "val_auc": 0.7543,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.16419,
+                        "val_loss": 0.664495,
+                        "val_auc": 0.7583,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.164937,
+                        "val_loss": 0.753271,
+                        "val_auc": 0.7472,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.145777,
+                        "val_loss": 0.691974,
+                        "val_auc": 0.7558,
+                        "time": 0.3
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.153179,
+                        "val_loss": 0.753742,
+                        "val_auc": 0.7496,
+                        "time": 0.34
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.147163,
+                        "val_loss": 0.68911,
+                        "val_auc": 0.7561,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.136435,
+                        "val_loss": 0.74566,
+                        "val_auc": 0.7534,
+                        "time": 0.31
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.133747,
+                        "val_loss": 0.844268,
+                        "val_auc": 0.7506,
+                        "time": 0.32
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.125301,
+                        "val_loss": 0.761171,
+                        "val_auc": 0.7558,
+                        "time": 0.3
+                    }
+                ],
+                "early_stop_epoch": 12,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224735_P8-O2_fold2.pth",
+                "best_val_loss": 0.616233
+            },
+            "fold_3": {
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "train_loss": 0.65299,
+                        "val_loss": 1.243748,
+                        "val_auc": 0.3783,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 2,
+                        "train_loss": 0.545914,
+                        "val_loss": 1.101795,
+                        "val_auc": 0.3904,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 3,
+                        "train_loss": 0.530702,
+                        "val_loss": 1.165237,
+                        "val_auc": 0.3641,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 4,
+                        "train_loss": 0.527882,
+                        "val_loss": 1.087581,
+                        "val_auc": 0.3823,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 5,
+                        "train_loss": 0.522068,
+                        "val_loss": 1.182399,
+                        "val_auc": 0.3898,
+                        "time": 0.42
+                    },
+                    {
+                        "epoch": 6,
+                        "train_loss": 0.521755,
+                        "val_loss": 1.132542,
+                        "val_auc": 0.3887,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 7,
+                        "train_loss": 0.511617,
+                        "val_loss": 1.198891,
+                        "val_auc": 0.3987,
+                        "time": 0.46
+                    },
+                    {
+                        "epoch": 8,
+                        "train_loss": 0.517111,
+                        "val_loss": 1.152449,
+                        "val_auc": 0.3983,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 9,
+                        "train_loss": 0.519308,
+                        "val_loss": 1.136988,
+                        "val_auc": 0.3871,
+                        "time": 0.49
+                    },
+                    {
+                        "epoch": 10,
+                        "train_loss": 0.520104,
+                        "val_loss": 1.108706,
+                        "val_auc": 0.3911,
+                        "time": 0.73
+                    },
+                    {
+                        "epoch": 11,
+                        "train_loss": 0.512989,
+                        "val_loss": 1.07088,
+                        "val_auc": 0.3905,
+                        "time": 0.5
+                    },
+                    {
+                        "epoch": 12,
+                        "train_loss": 0.507766,
+                        "val_loss": 1.229841,
+                        "val_auc": 0.4073,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 13,
+                        "train_loss": 0.514594,
+                        "val_loss": 1.155226,
+                        "val_auc": 0.4014,
+                        "time": 0.41
+                    },
+                    {
+                        "epoch": 14,
+                        "train_loss": 0.509963,
+                        "val_loss": 1.104594,
+                        "val_auc": 0.3908,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 15,
+                        "train_loss": 0.51182,
+                        "val_loss": 1.143812,
+                        "val_auc": 0.3871,
+                        "time": 0.52
+                    },
+                    {
+                        "epoch": 16,
+                        "train_loss": 0.513383,
+                        "val_loss": 1.261693,
+                        "val_auc": 0.4102,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 17,
+                        "train_loss": 0.510041,
+                        "val_loss": 1.102742,
+                        "val_auc": 0.3789,
+                        "time": 0.5
+                    },
+                    {
+                        "epoch": 18,
+                        "train_loss": 0.513059,
+                        "val_loss": 1.20881,
+                        "val_auc": 0.3875,
+                        "time": 0.43
+                    },
+                    {
+                        "epoch": 19,
+                        "train_loss": 0.503093,
+                        "val_loss": 1.241193,
+                        "val_auc": 0.4086,
+                        "time": 0.44
+                    },
+                    {
+                        "epoch": 20,
+                        "train_loss": 0.507234,
+                        "val_loss": 1.107487,
+                        "val_auc": 0.3659,
+                        "time": 0.45
+                    },
+                    {
+                        "epoch": 21,
+                        "train_loss": 0.502948,
+                        "val_loss": 1.232628,
+                        "val_auc": 0.3864,
+                        "time": 0.48
+                    }
+                ],
+                "early_stop_epoch": 21,
+                "weight_path": "C:\\Users\\hank\\Desktop\\Research Reproduction\\dianxian\\self\\weight\\2610_25_224735_P8-O2_fold3.pth",
+                "best_val_loss": 1.07088
+            }
+        }
+    }
+}

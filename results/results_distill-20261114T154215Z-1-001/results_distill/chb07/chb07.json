@@ -1,0 +1,2106 @@
+{
+    "config": {
+        "alphas": [
+            0.0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+        ],
+        "T": 2,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 32,
+        "dropout": 0.7,
+        "hidden_size": 20,
+        "channal_attention": false,
+        "temporal_attention": true,
+        "epochs_s": 30,
+        "patience_s": 10,
+        "epochs_t": 100,
+        "patience_t": 15
+    },
+    "teacher": {
+        "fold_1": {
+            "weight": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_teacher_fold1.pth",
+            "val_loss": 0.1103489100933075
+        },
+        "fold_2": {
+            "weight": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_teacher_fold2.pth",
+            "val_loss": 0.08332045873006184
+        },
+        "fold_3": {
+            "weight": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_teacher_fold3.pth",
+            "val_loss": 0.06383866568406422
+        }
+    },
+    "students": {
+        "a0.0": {
+            "fold_1": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold1_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold1_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold1_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold1_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold1_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold1_P8-O2.pth"
+            },
+            "fold_2": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold2_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold2_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold2_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold2_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold2_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold2_P8-O2.pth"
+            },
+            "fold_3": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold3_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold3_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold3_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold3_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold3_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.0_fold3_P8-O2.pth"
+            }
+        },
+        "a0.2": {
+            "fold_1": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold1_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold1_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold1_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold1_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold1_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold1_P8-O2.pth"
+            },
+            "fold_2": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold2_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold2_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold2_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold2_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold2_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold2_P8-O2.pth"
+            },
+            "fold_3": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold3_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold3_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold3_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold3_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold3_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.2_fold3_P8-O2.pth"
+            }
+        },
+        "a0.4": {
+            "fold_1": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold1_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold1_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold1_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold1_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold1_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold1_P8-O2.pth"
+            },
+            "fold_2": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold2_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold2_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold2_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold2_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold2_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold2_P8-O2.pth"
+            },
+            "fold_3": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold3_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold3_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold3_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold3_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold3_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.4_fold3_P8-O2.pth"
+            }
+        },
+        "a0.6": {
+            "fold_1": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold1_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold1_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold1_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold1_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold1_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold1_P8-O2.pth"
+            },
+            "fold_2": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold2_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold2_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold2_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold2_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold2_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold2_P8-O2.pth"
+            },
+            "fold_3": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold3_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold3_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold3_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold3_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold3_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.6_fold3_P8-O2.pth"
+            }
+        },
+        "a0.8": {
+            "fold_1": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold1_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold1_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold1_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold1_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold1_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold1_P8-O2.pth"
+            },
+            "fold_2": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold2_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold2_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold2_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold2_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold2_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold2_P8-O2.pth"
+            },
+            "fold_3": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold3_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold3_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold3_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold3_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold3_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a0.8_fold3_P8-O2.pth"
+            }
+        },
+        "a1.0": {
+            "fold_1": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold1_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold1_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold1_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold1_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold1_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold1_P8-O2.pth"
+            },
+            "fold_2": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold2_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold2_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold2_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold2_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold2_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold2_P8-O2.pth"
+            },
+            "fold_3": {
+                "Fp1-F7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold3_Fp1-F7.pth",
+                "Fp2-F8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold3_Fp2-F8.pth",
+                "T7-P7": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold3_T7-P7.pth",
+                "T8-P8": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold3_T8-P8.pth",
+                "P7-O1": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold3_P7-O1.pth",
+                "P8-O2": "/content/drive/MyDrive/colab/results_distill/chb07/weight/2611_14_134818_a1.0_fold3_P8-O2.pth"
+            }
+        }
+    },
+    "test_index": [
+        {
+            "fold": 0,
+            "seizure_id": 0,
+            "alpha": 0.0,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5444165498434177,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5270730919659837,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.5633765610287539,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.4140405666412192,
+                    "accuracy": 0.4972191323692992,
+                    "balanced_acc": 0.4972191323692992,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9944382647385984,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 5,
+                    "tn": 894,
+                    "fn": 899
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.7550770167322238,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.5177041354811488,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.5633116019406064,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 0,
+            "seizure_id": 0,
+            "alpha": 0.2,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5286358220294209,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5410423892076351,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6665817043037562,
+                    "accuracy": 0.5005561735261401,
+                    "balanced_acc": 0.5005561735261401,
+                    "sensitivity": 0.006674082313681869,
+                    "specificity": 0.9944382647385984,
+                    "precision": 0.5454545454545454,
+                    "f1": 0.013186813186813187,
+                    "tp": 6,
+                    "fp": 5,
+                    "tn": 894,
+                    "fn": 893
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.5324009745100539,
+                    "accuracy": 0.4988876529477197,
+                    "balanced_acc": 0.4988876529477197,
+                    "sensitivity": 0.0011123470522803114,
+                    "specificity": 0.996662958843159,
+                    "precision": 0.25,
+                    "f1": 0.0022148394241417496,
+                    "tp": 1,
+                    "fp": 3,
+                    "tn": 896,
+                    "fn": 898
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.7537852588650596,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.627851239976194,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6842555255437694,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 0,
+            "seizure_id": 0,
+            "alpha": 0.4,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5548384622142264,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5185486036270681,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6507391106915235,
+                    "accuracy": 0.503337041156841,
+                    "balanced_acc": 0.503337041156841,
+                    "sensitivity": 0.01668520578420467,
+                    "specificity": 0.9899888765294772,
+                    "precision": 0.625,
+                    "f1": 0.032502708559046585,
+                    "tp": 15,
+                    "fp": 9,
+                    "tn": 890,
+                    "fn": 884
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.524523602420685,
+                    "accuracy": 0.4955506117908788,
+                    "balanced_acc": 0.4955506117908788,
+                    "sensitivity": 0.0033370411568409346,
+                    "specificity": 0.9877641824249166,
+                    "precision": 0.21428571428571427,
+                    "f1": 0.0065717415115005475,
+                    "tp": 3,
+                    "fp": 11,
+                    "tn": 888,
+                    "fn": 896
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.7549693702432934,
+                    "accuracy": 0.4983314794215795,
+                    "balanced_acc": 0.4983314794215795,
+                    "sensitivity": 0.0,
+                    "specificity": 0.996662958843159,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 3,
+                    "tn": 896,
+                    "fn": 899
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.7190575116833561,
+                    "accuracy": 0.4972191323692992,
+                    "balanced_acc": 0.4972191323692992,
+                    "sensitivity": 0.004449388209121246,
+                    "specificity": 0.9899888765294772,
+                    "precision": 0.3076923076923077,
+                    "f1": 0.008771929824561403,
+                    "tp": 4,
+                    "fp": 9,
+                    "tn": 890,
+                    "fn": 895
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6785589228422138,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 0,
+            "seizure_id": 0,
+            "alpha": 0.6,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5542829073460687,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.002224694104560623,
+                    "specificity": 0.9977753058954394,
+                    "precision": 0.5,
+                    "f1": 0.004429678848283499,
+                    "tp": 2,
+                    "fp": 2,
+                    "tn": 897,
+                    "fn": 897
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5372735247791082,
+                    "accuracy": 0.5044493882091212,
+                    "balanced_acc": 0.5044493882091212,
+                    "sensitivity": 0.014460511679644048,
+                    "specificity": 0.9944382647385984,
+                    "precision": 0.7222222222222222,
+                    "f1": 0.028353326063249727,
+                    "tp": 13,
+                    "fp": 5,
+                    "tn": 894,
+                    "fn": 886
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6503406949508848,
+                    "accuracy": 0.4860956618464961,
+                    "balanced_acc": 0.4860956618464961,
+                    "sensitivity": 0.006674082313681869,
+                    "specificity": 0.9655172413793104,
+                    "precision": 0.16216216216216217,
+                    "f1": 0.01282051282051282,
+                    "tp": 6,
+                    "fp": 31,
+                    "tn": 868,
+                    "fn": 893
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.547389820106632,
+                    "accuracy": 0.4911012235817575,
+                    "balanced_acc": 0.4911012235817575,
+                    "sensitivity": 0.0055617352614015575,
+                    "specificity": 0.9766407119021134,
+                    "precision": 0.19230769230769232,
+                    "f1": 0.010810810810810811,
+                    "tp": 5,
+                    "fp": 21,
+                    "tn": 878,
+                    "fn": 894
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.7058293667045699,
+                    "accuracy": 0.4994438264738598,
+                    "balanced_acc": 0.4994438264738599,
+                    "sensitivity": 0.08231368186874305,
+                    "specificity": 0.9165739710789766,
+                    "precision": 0.4966442953020134,
+                    "f1": 0.14122137404580154,
+                    "tp": 74,
+                    "fp": 75,
+                    "tn": 824,
+                    "fn": 825
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.736872386943347,
+                    "accuracy": 0.5489432703003337,
+                    "balanced_acc": 0.5489432703003336,
+                    "sensitivity": 0.19243604004449388,
+                    "specificity": 0.9054505005561735,
+                    "precision": 0.6705426356589147,
+                    "f1": 0.2990492653414002,
+                    "tp": 173,
+                    "fp": 85,
+                    "tn": 814,
+                    "fn": 726
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6876494832349874,
+                    "accuracy": 0.492769744160178,
+                    "balanced_acc": 0.492769744160178,
+                    "sensitivity": 0.002224694104560623,
+                    "specificity": 0.9833147942157954,
+                    "precision": 0.11764705882352941,
+                    "f1": 0.004366812227074236,
+                    "tp": 2,
+                    "fp": 15,
+                    "tn": 884,
+                    "fn": 897
+                }
+            ]
+        },
+        {
+            "fold": 0,
+            "seizure_id": 0,
+            "alpha": 0.8,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5455128117881567,
+                    "accuracy": 0.5189098998887653,
+                    "balanced_acc": 0.5189098998887652,
+                    "sensitivity": 0.0967741935483871,
+                    "specificity": 0.9410456062291435,
+                    "precision": 0.6214285714285714,
+                    "f1": 0.16746871992300288,
+                    "tp": 87,
+                    "fp": 53,
+                    "tn": 846,
+                    "fn": 812
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5641573074024903,
+                    "accuracy": 0.5061179087875417,
+                    "balanced_acc": 0.5061179087875417,
+                    "sensitivity": 0.11234705228031146,
+                    "specificity": 0.899888765294772,
+                    "precision": 0.5287958115183246,
+                    "f1": 0.1853211009174312,
+                    "tp": 101,
+                    "fp": 90,
+                    "tn": 809,
+                    "fn": 798
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6388534535344549,
+                    "accuracy": 0.4760845383759733,
+                    "balanced_acc": 0.4760845383759733,
+                    "sensitivity": 0.17686318131256953,
+                    "specificity": 0.7753058954393771,
+                    "precision": 0.4404432132963989,
+                    "f1": 0.2523809523809524,
+                    "tp": 159,
+                    "fp": 202,
+                    "tn": 697,
+                    "fn": 740
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.5487112735569494,
+                    "accuracy": 0.42602892102335926,
+                    "balanced_acc": 0.4260289210233593,
+                    "sensitivity": 0.11457174638487208,
+                    "specificity": 0.7374860956618465,
+                    "precision": 0.30383480825958703,
+                    "f1": 0.16639741518578352,
+                    "tp": 103,
+                    "fp": 236,
+                    "tn": 663,
+                    "fn": 796
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.6423463965028502,
+                    "accuracy": 0.5127919911012235,
+                    "balanced_acc": 0.5127919911012235,
+                    "sensitivity": 0.24916573971078976,
+                    "specificity": 0.7764182424916574,
+                    "precision": 0.5270588235294118,
+                    "f1": 0.338368580060423,
+                    "tp": 224,
+                    "fp": 201,
+                    "tn": 698,
+                    "fn": 675
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.746476433461478,
+                    "accuracy": 0.6918798665183538,
+                    "balanced_acc": 0.6918798665183536,
+                    "sensitivity": 0.7508342602892102,
+                    "specificity": 0.6329254727474972,
+                    "precision": 0.6716417910447762,
+                    "f1": 0.7090336134453782,
+                    "tp": 675,
+                    "fp": 330,
+                    "tn": 569,
+                    "fn": 224
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6727806572869868,
+                    "accuracy": 0.5367074527252503,
+                    "balanced_acc": 0.5367074527252503,
+                    "sensitivity": 0.3025583982202447,
+                    "specificity": 0.7708565072302559,
+                    "precision": 0.5690376569037657,
+                    "f1": 0.3950617283950617,
+                    "tp": 272,
+                    "fp": 206,
+                    "tn": 693,
+                    "fn": 627
+                }
+            ]
+        },
+        {
+            "fold": 0,
+            "seizure_id": 0,
+            "alpha": 1.0,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.571223000219005,
+                    "accuracy": 0.517797552836485,
+                    "balanced_acc": 0.517797552836485,
+                    "sensitivity": 0.4694104560622914,
+                    "specificity": 0.5661846496106785,
+                    "precision": 0.5197044334975369,
+                    "f1": 0.49327878433664524,
+                    "tp": 422,
+                    "fp": 390,
+                    "tn": 509,
+                    "fn": 477
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5386766410830969,
+                    "accuracy": 0.5111234705228032,
+                    "balanced_acc": 0.5111234705228032,
+                    "sensitivity": 0.474972191323693,
+                    "specificity": 0.5472747497219133,
+                    "precision": 0.511990407673861,
+                    "f1": 0.4927870744373918,
+                    "tp": 427,
+                    "fp": 407,
+                    "tn": 492,
+                    "fn": 472
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6168638742095098,
+                    "accuracy": 0.5472747497219133,
+                    "balanced_acc": 0.5472747497219133,
+                    "sensitivity": 0.457174638487208,
+                    "specificity": 0.6373748609566184,
+                    "precision": 0.5576662143826323,
+                    "f1": 0.5024449877750611,
+                    "tp": 411,
+                    "fp": 326,
+                    "tn": 573,
+                    "fn": 488
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.5633066526767475,
+                    "accuracy": 0.4849833147942158,
+                    "balanced_acc": 0.48498331479421575,
+                    "sensitivity": 0.3781979977753059,
+                    "specificity": 0.5917686318131257,
+                    "precision": 0.4809052333804809,
+                    "f1": 0.42341220423412207,
+                    "tp": 340,
+                    "fp": 367,
+                    "tn": 532,
+                    "fn": 559
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.6467487667053121,
+                    "accuracy": 0.592880978865406,
+                    "balanced_acc": 0.5928809788654059,
+                    "sensitivity": 0.5995550611790879,
+                    "specificity": 0.5862068965517241,
+                    "precision": 0.5916575192096597,
+                    "f1": 0.5955801104972376,
+                    "tp": 539,
+                    "fp": 372,
+                    "tn": 527,
+                    "fn": 360
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.7350522951592487,
+                    "accuracy": 0.7002224694104561,
+                    "balanced_acc": 0.7002224694104561,
+                    "sensitivity": 0.8921023359288098,
+                    "specificity": 0.5083426028921023,
+                    "precision": 0.6446945337620579,
+                    "f1": 0.7484834344377042,
+                    "tp": 802,
+                    "fp": 442,
+                    "tn": 457,
+                    "fn": 97
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6215229874746504,
+                    "accuracy": 0.5483870967741935,
+                    "balanced_acc": 0.5483870967741935,
+                    "sensitivity": 0.4849833147942158,
+                    "specificity": 0.6117908787541713,
+                    "precision": 0.5554140127388535,
+                    "f1": 0.517814726840855,
+                    "tp": 436,
+                    "fp": 349,
+                    "tn": 550,
+                    "fn": 463
+                }
+            ]
+        },
+        {
+            "fold": 1,
+            "seizure_id": 1,
+            "alpha": 0.0,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5317905169121184,
+                    "accuracy": 0.4983296213808463,
+                    "balanced_acc": 0.4983296213808463,
+                    "sensitivity": 0.013363028953229399,
+                    "specificity": 0.9832962138084632,
+                    "precision": 0.4444444444444444,
+                    "f1": 0.025945945945945945,
+                    "tp": 12,
+                    "fp": 15,
+                    "tn": 883,
+                    "fn": 886
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5486381515964702,
+                    "accuracy": 0.4866369710467706,
+                    "balanced_acc": 0.48663697104677056,
+                    "sensitivity": 0.008908685968819599,
+                    "specificity": 0.9643652561247216,
+                    "precision": 0.2,
+                    "f1": 0.017057569296375266,
+                    "tp": 8,
+                    "fp": 32,
+                    "tn": 866,
+                    "fn": 890
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.7817074320067857,
+                    "accuracy": 0.522271714922049,
+                    "balanced_acc": 0.5222717149220489,
+                    "sensitivity": 0.07349665924276169,
+                    "specificity": 0.9710467706013363,
+                    "precision": 0.717391304347826,
+                    "f1": 0.13333333333333333,
+                    "tp": 66,
+                    "fp": 26,
+                    "tn": 872,
+                    "fn": 832
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.6591584367141036,
+                    "accuracy": 0.49498886414253895,
+                    "balanced_acc": 0.494988864142539,
+                    "sensitivity": 0.036748329621380846,
+                    "specificity": 0.9532293986636972,
+                    "precision": 0.44,
+                    "f1": 0.06783144912641316,
+                    "tp": 33,
+                    "fp": 42,
+                    "tn": 856,
+                    "fn": 865
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.8338549907986567,
+                    "accuracy": 0.4983296213808463,
+                    "balanced_acc": 0.49832962138084635,
+                    "sensitivity": 0.017817371937639197,
+                    "specificity": 0.9788418708240535,
+                    "precision": 0.45714285714285713,
+                    "f1": 0.03429796355841372,
+                    "tp": 16,
+                    "fp": 19,
+                    "tn": 879,
+                    "fn": 882
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.9270973358267073,
+                    "accuracy": 0.5044543429844098,
+                    "balanced_acc": 0.5044543429844098,
+                    "sensitivity": 0.0200445434298441,
+                    "specificity": 0.9888641425389755,
+                    "precision": 0.6428571428571429,
+                    "f1": 0.038876889848812095,
+                    "tp": 18,
+                    "fp": 10,
+                    "tn": 888,
+                    "fn": 880
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.8317195847242822,
+                    "accuracy": 0.4910913140311804,
+                    "balanced_acc": 0.4910913140311804,
+                    "sensitivity": 0.0066815144766146995,
+                    "specificity": 0.9755011135857461,
+                    "precision": 0.21428571428571427,
+                    "f1": 0.012958963282937365,
+                    "tp": 6,
+                    "fp": 22,
+                    "tn": 876,
+                    "fn": 892
+                }
+            ]
+        },
+        {
+            "fold": 1,
+            "seizure_id": 1,
+            "alpha": 0.2,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5390337845546401,
+                    "accuracy": 0.5022271714922049,
+                    "balanced_acc": 0.502227171492205,
+                    "sensitivity": 0.0378619153674833,
+                    "specificity": 0.9665924276169265,
+                    "precision": 0.53125,
+                    "f1": 0.07068607068607069,
+                    "tp": 34,
+                    "fp": 30,
+                    "tn": 868,
+                    "fn": 864
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.560074106775264,
+                    "accuracy": 0.5022271714922049,
+                    "balanced_acc": 0.5022271714922049,
+                    "sensitivity": 0.028953229398663696,
+                    "specificity": 0.9755011135857461,
+                    "precision": 0.5416666666666666,
+                    "f1": 0.05496828752642706,
+                    "tp": 26,
+                    "fp": 22,
+                    "tn": 876,
+                    "fn": 872
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.8233627313356581,
+                    "accuracy": 0.5317371937639198,
+                    "balanced_acc": 0.5317371937639198,
+                    "sensitivity": 0.0957683741648107,
+                    "specificity": 0.967706013363029,
+                    "precision": 0.7478260869565218,
+                    "f1": 0.16979269496544916,
+                    "tp": 86,
+                    "fp": 29,
+                    "tn": 869,
+                    "fn": 812
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.6231194289710865,
+                    "accuracy": 0.5077951002227171,
+                    "balanced_acc": 0.5077951002227172,
+                    "sensitivity": 0.031180400890868598,
+                    "specificity": 0.9844097995545658,
+                    "precision": 0.6666666666666666,
+                    "f1": 0.059574468085106386,
+                    "tp": 28,
+                    "fp": 14,
+                    "tn": 884,
+                    "fn": 870
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.8621894236635732,
+                    "accuracy": 0.5094654788418709,
+                    "balanced_acc": 0.5094654788418708,
+                    "sensitivity": 0.06792873051224944,
+                    "specificity": 0.9510022271714922,
+                    "precision": 0.580952380952381,
+                    "f1": 0.12163509471585245,
+                    "tp": 61,
+                    "fp": 44,
+                    "tn": 854,
+                    "fn": 837
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.9007023774683657,
+                    "accuracy": 0.512249443207127,
+                    "balanced_acc": 0.512249443207127,
+                    "sensitivity": 0.053452115812917596,
+                    "specificity": 0.9710467706013363,
+                    "precision": 0.6486486486486487,
+                    "f1": 0.09876543209876543,
+                    "tp": 48,
+                    "fp": 26,
+                    "tn": 872,
+                    "fn": 850
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.8542665958998219,
+                    "accuracy": 0.5044543429844098,
+                    "balanced_acc": 0.5044543429844098,
+                    "sensitivity": 0.04788418708240535,
+                    "specificity": 0.9610244988864143,
+                    "precision": 0.5512820512820513,
+                    "f1": 0.08811475409836066,
+                    "tp": 43,
+                    "fp": 35,
+                    "tn": 863,
+                    "fn": 855
+                }
+            ]
+        },
+        {
+            "fold": 1,
+            "seizure_id": 1,
+            "alpha": 0.4,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5375097345747293,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.012249443207126948,
+                    "specificity": 0.987750556792873,
+                    "precision": 0.5,
+                    "f1": 0.02391304347826087,
+                    "tp": 11,
+                    "fp": 11,
+                    "tn": 887,
+                    "fn": 887
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5763364269026443,
+                    "accuracy": 0.4916481069042316,
+                    "balanced_acc": 0.4916481069042316,
+                    "sensitivity": 0.025612472160356347,
+                    "specificity": 0.9576837416481069,
+                    "precision": 0.3770491803278688,
+                    "f1": 0.047966631908237745,
+                    "tp": 23,
+                    "fp": 38,
+                    "tn": 860,
+                    "fn": 875
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.8303555041889673,
+                    "accuracy": 0.5712694877505567,
+                    "balanced_acc": 0.5712694877505569,
+                    "sensitivity": 0.21269487750556793,
+                    "specificity": 0.9298440979955457,
+                    "precision": 0.7519685039370079,
+                    "f1": 0.3315972222222222,
+                    "tp": 191,
+                    "fp": 63,
+                    "tn": 835,
+                    "fn": 707
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.552885402354155,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.008908685968819599,
+                    "specificity": 0.9910913140311804,
+                    "precision": 0.5,
+                    "f1": 0.0175054704595186,
+                    "tp": 8,
+                    "fp": 8,
+                    "tn": 890,
+                    "fn": 890
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.8913832272657377,
+                    "accuracy": 0.5712694877505567,
+                    "balanced_acc": 0.5712694877505567,
+                    "sensitivity": 0.19042316258351893,
+                    "specificity": 0.9521158129175946,
+                    "precision": 0.7990654205607477,
+                    "f1": 0.30755395683453235,
+                    "tp": 171,
+                    "fp": 43,
+                    "tn": 855,
+                    "fn": 727
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.956690443003755,
+                    "accuracy": 0.7405345211581291,
+                    "balanced_acc": 0.7405345211581291,
+                    "sensitivity": 0.49443207126948774,
+                    "specificity": 0.9866369710467706,
+                    "precision": 0.9736842105263158,
+                    "f1": 0.6558345642540621,
+                    "tp": 444,
+                    "fp": 12,
+                    "tn": 886,
+                    "fn": 454
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.8949372770968397,
+                    "accuracy": 0.505011135857461,
+                    "balanced_acc": 0.505011135857461,
+                    "sensitivity": 0.04788418708240535,
+                    "specificity": 0.9621380846325167,
+                    "precision": 0.5584415584415584,
+                    "f1": 0.0882051282051282,
+                    "tp": 43,
+                    "fp": 34,
+                    "tn": 864,
+                    "fn": 855
+                }
+            ]
+        },
+        {
+            "fold": 1,
+            "seizure_id": 1,
+            "alpha": 0.6,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5629275152404998,
+                    "accuracy": 0.5022271714922049,
+                    "balanced_acc": 0.502227171492205,
+                    "sensitivity": 0.025612472160356347,
+                    "specificity": 0.9788418708240535,
+                    "precision": 0.5476190476190477,
+                    "f1": 0.04893617021276596,
+                    "tp": 23,
+                    "fp": 19,
+                    "tn": 879,
+                    "fn": 875
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5526497884435098,
+                    "accuracy": 0.49665924276169265,
+                    "balanced_acc": 0.49665924276169265,
+                    "sensitivity": 0.01670378619153675,
+                    "specificity": 0.9766146993318485,
+                    "precision": 0.4166666666666667,
+                    "f1": 0.032119914346895075,
+                    "tp": 15,
+                    "fp": 21,
+                    "tn": 877,
+                    "fn": 883
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.835356719460717,
+                    "accuracy": 0.532293986636971,
+                    "balanced_acc": 0.532293986636971,
+                    "sensitivity": 0.07349665924276169,
+                    "specificity": 0.9910913140311804,
+                    "precision": 0.8918918918918919,
+                    "f1": 0.13580246913580246,
+                    "tp": 66,
+                    "fp": 8,
+                    "tn": 890,
+                    "fn": 832
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.7120525195807559,
+                    "accuracy": 0.5239420935412027,
+                    "balanced_acc": 0.5239420935412027,
+                    "sensitivity": 0.10022271714922049,
+                    "specificity": 0.9476614699331849,
+                    "precision": 0.656934306569343,
+                    "f1": 0.17391304347826086,
+                    "tp": 90,
+                    "fp": 47,
+                    "tn": 851,
+                    "fn": 808
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.9171147464546308,
+                    "accuracy": 0.8474387527839644,
+                    "balanced_acc": 0.8474387527839644,
+                    "sensitivity": 0.844097995545657,
+                    "specificity": 0.8507795100222717,
+                    "precision": 0.8497757847533632,
+                    "f1": 0.846927374301676,
+                    "tp": 758,
+                    "fp": 134,
+                    "tn": 764,
+                    "fn": 140
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.9324234502805047,
+                    "accuracy": 0.85913140311804,
+                    "balanced_acc": 0.8591314031180401,
+                    "sensitivity": 0.9175946547884187,
+                    "specificity": 0.8006681514476615,
+                    "precision": 0.8215353938185443,
+                    "f1": 0.866912151499211,
+                    "tp": 824,
+                    "fp": 179,
+                    "tn": 719,
+                    "fn": 74
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.9329591619089191,
+                    "accuracy": 0.8680400890868597,
+                    "balanced_acc": 0.8680400890868597,
+                    "sensitivity": 0.8374164810690423,
+                    "specificity": 0.8986636971046771,
+                    "precision": 0.8920521945432978,
+                    "f1": 0.8638713383113154,
+                    "tp": 752,
+                    "fp": 91,
+                    "tn": 807,
+                    "fn": 146
+                }
+            ]
+        },
+        {
+            "fold": 1,
+            "seizure_id": 1,
+            "alpha": 0.8,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5583243634704192,
+                    "accuracy": 0.515033407572383,
+                    "balanced_acc": 0.515033407572383,
+                    "sensitivity": 0.21046770601336304,
+                    "specificity": 0.8195991091314031,
+                    "precision": 0.5384615384615384,
+                    "f1": 0.3026421136909528,
+                    "tp": 189,
+                    "fp": 162,
+                    "tn": 736,
+                    "fn": 709
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.563708761365271,
+                    "accuracy": 0.5167037861915368,
+                    "balanced_acc": 0.5167037861915368,
+                    "sensitivity": 0.19710467706013363,
+                    "specificity": 0.8363028953229399,
+                    "precision": 0.5462962962962963,
+                    "f1": 0.2896890343698854,
+                    "tp": 177,
+                    "fp": 147,
+                    "tn": 751,
+                    "fn": 721
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.8549907986567526,
+                    "accuracy": 0.522271714922049,
+                    "balanced_acc": 0.522271714922049,
+                    "sensitivity": 0.05790645879732739,
+                    "specificity": 0.9866369710467706,
+                    "precision": 0.8125,
+                    "f1": 0.10810810810810811,
+                    "tp": 52,
+                    "fp": 12,
+                    "tn": 886,
+                    "fn": 846
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.6308953080589877,
+                    "accuracy": 0.5139198218262806,
+                    "balanced_acc": 0.5139198218262806,
+                    "sensitivity": 0.1759465478841871,
+                    "specificity": 0.8518930957683741,
+                    "precision": 0.5429553264604811,
+                    "f1": 0.2657695542472666,
+                    "tp": 158,
+                    "fp": 133,
+                    "tn": 765,
+                    "fn": 740
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.9370439630755801,
+                    "accuracy": 0.8246102449888641,
+                    "balanced_acc": 0.8246102449888641,
+                    "sensitivity": 0.9643652561247216,
+                    "specificity": 0.6848552338530067,
+                    "precision": 0.7536988685813751,
+                    "f1": 0.8461162677088422,
+                    "tp": 866,
+                    "fp": 283,
+                    "tn": 615,
+                    "fn": 32
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.9156254185247097,
+                    "accuracy": 0.8045657015590201,
+                    "balanced_acc": 0.8045657015590201,
+                    "sensitivity": 0.9621380846325167,
+                    "specificity": 0.6469933184855234,
+                    "precision": 0.7315834038950042,
+                    "f1": 0.8311688311688312,
+                    "tp": 864,
+                    "fp": 317,
+                    "tn": 581,
+                    "fn": 34
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.8757421838185325,
+                    "accuracy": 0.8530066815144766,
+                    "balanced_acc": 0.8530066815144766,
+                    "sensitivity": 0.9309576837416481,
+                    "specificity": 0.7750556792873051,
+                    "precision": 0.8053949903660886,
+                    "f1": 0.8636363636363636,
+                    "tp": 836,
+                    "fp": 202,
+                    "tn": 696,
+                    "fn": 62
+                }
+            ]
+        },
+        {
+            "fold": 1,
+            "seizure_id": 1,
+            "alpha": 1.0,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.5627725060887595,
+                    "accuracy": 0.5434298440979956,
+                    "balanced_acc": 0.5434298440979956,
+                    "sensitivity": 0.4643652561247216,
+                    "specificity": 0.6224944320712695,
+                    "precision": 0.5515873015873016,
+                    "f1": 0.5042321644498187,
+                    "tp": 417,
+                    "fp": 339,
+                    "tn": 559,
+                    "fn": 481
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.5933427909583783,
+                    "accuracy": 0.5751670378619154,
+                    "balanced_acc": 0.5751670378619154,
+                    "sensitivity": 0.6247216035634744,
+                    "specificity": 0.5256124721603563,
+                    "precision": 0.5683890577507599,
+                    "f1": 0.5952254641909814,
+                    "tp": 561,
+                    "fp": 426,
+                    "tn": 472,
+                    "fn": 337
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.8415670061160412,
+                    "accuracy": 0.7873051224944321,
+                    "balanced_acc": 0.7873051224944321,
+                    "sensitivity": 0.910913140311804,
+                    "specificity": 0.6636971046770601,
+                    "precision": 0.7303571428571428,
+                    "f1": 0.8107036669970268,
+                    "tp": 818,
+                    "fp": 302,
+                    "tn": 596,
+                    "fn": 80
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.6877291035262721,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 1.0,
+                    "specificity": 0.0,
+                    "precision": 0.5,
+                    "f1": 0.6666666666666666,
+                    "tp": 898,
+                    "fp": 898,
+                    "tn": 0,
+                    "fn": 0
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.9245489853720963,
+                    "accuracy": 0.7951002227171492,
+                    "balanced_acc": 0.7951002227171492,
+                    "sensitivity": 0.9755011135857461,
+                    "specificity": 0.6146993318485523,
+                    "precision": 0.7168576104746317,
+                    "f1": 0.8264150943396227,
+                    "tp": 876,
+                    "fp": 346,
+                    "tn": 552,
+                    "fn": 22
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.9228686861672314,
+                    "accuracy": 0.7538975501113586,
+                    "balanced_acc": 0.7538975501113586,
+                    "sensitivity": 0.9844097995545658,
+                    "specificity": 0.5233853006681515,
+                    "precision": 0.6737804878048781,
+                    "f1": 0.8,
+                    "tp": 884,
+                    "fp": 428,
+                    "tn": 470,
+                    "fn": 14
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.8968333490409273,
+                    "accuracy": 0.767260579064588,
+                    "balanced_acc": 0.767260579064588,
+                    "sensitivity": 0.9910913140311804,
+                    "specificity": 0.5434298440979956,
+                    "precision": 0.6846153846153846,
+                    "f1": 0.8098271155595996,
+                    "tp": 890,
+                    "fp": 410,
+                    "tn": 488,
+                    "fn": 8
+                }
+            ]
+        },
+        {
+            "fold": 2,
+            "seizure_id": 2,
+            "alpha": 0.0,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.7822534245812613,
+                    "accuracy": 0.4994438264738598,
+                    "balanced_acc": 0.4994438264738598,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9988876529477196,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 1,
+                    "tn": 898,
+                    "fn": 899
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.7663254561674633,
+                    "accuracy": 0.4988876529477197,
+                    "balanced_acc": 0.4988876529477197,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9977753058954394,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 2,
+                    "tn": 897,
+                    "fn": 899
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.7029018771320501,
+                    "accuracy": 0.4994438264738598,
+                    "balanced_acc": 0.4994438264738598,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9988876529477196,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 1,
+                    "tn": 898,
+                    "fn": 899
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.7081369609787664,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.49769302438378565,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.56567611274918,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.7373326684822217,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 2,
+            "seizure_id": 2,
+            "alpha": 0.2,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.77018340734545,
+                    "accuracy": 0.5011123470522804,
+                    "balanced_acc": 0.5011123470522804,
+                    "sensitivity": 0.002224694104560623,
+                    "specificity": 1.0,
+                    "precision": 1.0,
+                    "f1": 0.004439511653718091,
+                    "tp": 2,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 897
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.7770430870538392,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6535552418272187,
+                    "accuracy": 0.4994438264738598,
+                    "balanced_acc": 0.4994438264738598,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9988876529477196,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 1,
+                    "tn": 898,
+                    "fn": 899
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.7607983657530738,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.6143051047944756,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.6516497752415551,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.7029142502916972,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 2,
+            "seizure_id": 2,
+            "alpha": 0.4,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.7569453638389461,
+                    "accuracy": 0.5066740823136818,
+                    "balanced_acc": 0.5066740823136818,
+                    "sensitivity": 0.01557285873192436,
+                    "specificity": 0.9977753058954394,
+                    "precision": 0.875,
+                    "f1": 0.030601092896174863,
+                    "tp": 14,
+                    "fp": 2,
+                    "tn": 897,
+                    "fn": 885
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.7559703588587492,
+                    "accuracy": 0.517797552836485,
+                    "balanced_acc": 0.517797552836485,
+                    "sensitivity": 0.0389321468298109,
+                    "specificity": 0.996662958843159,
+                    "precision": 0.9210526315789473,
+                    "f1": 0.07470651013874066,
+                    "tp": 35,
+                    "fp": 3,
+                    "tn": 896,
+                    "fn": 864
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.61787909195856,
+                    "accuracy": 0.489432703003337,
+                    "balanced_acc": 0.489432703003337,
+                    "sensitivity": 0.0,
+                    "specificity": 0.978865406006674,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 19,
+                    "tn": 880,
+                    "fn": 899
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.6357292307235453,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.6687037011832453,
+                    "accuracy": 0.4994438264738598,
+                    "balanced_acc": 0.4994438264738598,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9988876529477196,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 1,
+                    "tn": 898,
+                    "fn": 899
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.6630528791723842,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.684008062350826,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 2,
+            "seizure_id": 2,
+            "alpha": 0.6,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.8210185337558356,
+                    "accuracy": 0.5761957730812013,
+                    "balanced_acc": 0.5761957730812013,
+                    "sensitivity": 0.1746384872080089,
+                    "specificity": 0.9777530589543938,
+                    "precision": 0.8870056497175142,
+                    "f1": 0.29182156133828996,
+                    "tp": 157,
+                    "fp": 20,
+                    "tn": 879,
+                    "fn": 742
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.750533592509784,
+                    "accuracy": 0.5611790878754171,
+                    "balanced_acc": 0.5611790878754171,
+                    "sensitivity": 0.15239154616240266,
+                    "specificity": 0.9699666295884316,
+                    "precision": 0.8353658536585366,
+                    "f1": 0.257761053621825,
+                    "tp": 137,
+                    "fp": 27,
+                    "tn": 872,
+                    "fn": 762
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6086270618323908,
+                    "accuracy": 0.4988876529477197,
+                    "balanced_acc": 0.4988876529477197,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9977753058954394,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 2,
+                    "tn": 897,
+                    "fn": 899
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.5776768402909672,
+                    "accuracy": 0.5011123470522804,
+                    "balanced_acc": 0.5011123470522802,
+                    "sensitivity": 0.0055617352614015575,
+                    "specificity": 0.996662958843159,
+                    "precision": 0.625,
+                    "f1": 0.011025358324145534,
+                    "tp": 5,
+                    "fp": 3,
+                    "tn": 896,
+                    "fn": 894
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.6888323572972566,
+                    "accuracy": 0.4972191323692992,
+                    "balanced_acc": 0.4972191323692992,
+                    "sensitivity": 0.024471635150166853,
+                    "specificity": 0.9699666295884316,
+                    "precision": 0.4489795918367347,
+                    "f1": 0.046413502109704644,
+                    "tp": 22,
+                    "fp": 27,
+                    "tn": 872,
+                    "fn": 877
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.685397568179203,
+                    "accuracy": 0.4955506117908788,
+                    "balanced_acc": 0.4955506117908788,
+                    "sensitivity": 0.00778642936596218,
+                    "specificity": 0.9833147942157954,
+                    "precision": 0.3181818181818182,
+                    "f1": 0.01520086862106406,
+                    "tp": 7,
+                    "fp": 15,
+                    "tn": 884,
+                    "fn": 892
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6964901058028881,
+                    "accuracy": 0.4994438264738598,
+                    "balanced_acc": 0.4994438264738598,
+                    "sensitivity": 0.0,
+                    "specificity": 0.9988876529477196,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 1,
+                    "tn": 898,
+                    "fn": 899
+                }
+            ]
+        },
+        {
+            "fold": 2,
+            "seizure_id": 2,
+            "alpha": 0.8,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.7712376005473884,
+                    "accuracy": 0.6852057842046718,
+                    "balanced_acc": 0.6852057842046719,
+                    "sensitivity": 0.7775305895439377,
+                    "specificity": 0.592880978865406,
+                    "precision": 0.6563380281690141,
+                    "f1": 0.7118126272912424,
+                    "tp": 699,
+                    "fp": 366,
+                    "tn": 533,
+                    "fn": 200
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.6937717226284056,
+                    "accuracy": 0.6218020022246941,
+                    "balanced_acc": 0.6218020022246942,
+                    "sensitivity": 0.5139043381535039,
+                    "specificity": 0.7296996662958843,
+                    "precision": 0.6553191489361702,
+                    "f1": 0.5760598503740648,
+                    "tp": 462,
+                    "fp": 243,
+                    "tn": 656,
+                    "fn": 437
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6740872629457276,
+                    "accuracy": 0.5728587319243604,
+                    "balanced_acc": 0.5728587319243603,
+                    "sensitivity": 0.40489432703003336,
+                    "specificity": 0.7408231368186874,
+                    "precision": 0.609715242881072,
+                    "f1": 0.48663101604278075,
+                    "tp": 364,
+                    "fp": 233,
+                    "tn": 666,
+                    "fn": 535
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.3082945950326713,
+                    "accuracy": 0.5,
+                    "balanced_acc": 0.5,
+                    "sensitivity": 0.0,
+                    "specificity": 1.0,
+                    "precision": 0.0,
+                    "f1": 0.0,
+                    "tp": 0,
+                    "fp": 0,
+                    "tn": 899,
+                    "fn": 899
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.7195957441280078,
+                    "accuracy": 0.6240266963292548,
+                    "balanced_acc": 0.6240266963292547,
+                    "sensitivity": 0.4983314794215795,
+                    "specificity": 0.7497219132369299,
+                    "precision": 0.6656760772659732,
+                    "f1": 0.5699745547073791,
+                    "tp": 448,
+                    "fp": 225,
+                    "tn": 674,
+                    "fn": 451
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.7134809286303778,
+                    "accuracy": 0.5812013348164627,
+                    "balanced_acc": 0.5812013348164627,
+                    "sensitivity": 0.3659621802002225,
+                    "specificity": 0.796440489432703,
+                    "precision": 0.642578125,
+                    "f1": 0.4663359319631467,
+                    "tp": 329,
+                    "fp": 183,
+                    "tn": 716,
+                    "fn": 570
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.7401401384061639,
+                    "accuracy": 0.5595105672969967,
+                    "balanced_acc": 0.5595105672969967,
+                    "sensitivity": 0.2413793103448276,
+                    "specificity": 0.8776418242491657,
+                    "precision": 0.6636085626911316,
+                    "f1": 0.3539967373572594,
+                    "tp": 217,
+                    "fp": 110,
+                    "tn": 789,
+                    "fn": 682
+                }
+            ]
+        },
+        {
+            "fold": 2,
+            "seizure_id": 2,
+            "alpha": 1.0,
+            "metrics": [
+                {
+                    "elec": "Fp1-F7",
+                    "auc": 0.68606571880015,
+                    "accuracy": 0.6345939933259177,
+                    "balanced_acc": 0.6345939933259177,
+                    "sensitivity": 0.7530589543937709,
+                    "specificity": 0.5161290322580645,
+                    "precision": 0.6088129496402878,
+                    "f1": 0.6732968672302337,
+                    "tp": 677,
+                    "fp": 435,
+                    "tn": 464,
+                    "fn": 222
+                },
+                {
+                    "elec": "Fp2-F8",
+                    "auc": 0.6483065475048906,
+                    "accuracy": 0.5967741935483871,
+                    "balanced_acc": 0.596774193548387,
+                    "sensitivity": 0.5917686318131257,
+                    "specificity": 0.6017797552836485,
+                    "precision": 0.597752808988764,
+                    "f1": 0.5947456679709335,
+                    "tp": 532,
+                    "fp": 358,
+                    "tn": 541,
+                    "fn": 367
+                },
+                {
+                    "elec": "T7-P7",
+                    "auc": 0.6554279195398175,
+                    "accuracy": 0.6373748609566184,
+                    "balanced_acc": 0.6373748609566185,
+                    "sensitivity": 0.7497219132369299,
+                    "specificity": 0.525027808676307,
+                    "precision": 0.6121707538601272,
+                    "f1": 0.674,
+                    "tp": 674,
+                    "fp": 427,
+                    "tn": 472,
+                    "fn": 225
+                },
+                {
+                    "elec": "T8-P8",
+                    "auc": 0.5362960451669819,
+                    "accuracy": 0.5005561735261401,
+                    "balanced_acc": 0.5005561735261401,
+                    "sensitivity": 0.41490545050055616,
+                    "specificity": 0.5862068965517241,
+                    "precision": 0.5006711409395973,
+                    "f1": 0.4537712895377129,
+                    "tp": 373,
+                    "fp": 372,
+                    "tn": 527,
+                    "fn": 526
+                },
+                {
+                    "elec": "P7-O1",
+                    "auc": 0.7118352983973047,
+                    "accuracy": 0.6451612903225806,
+                    "balanced_acc": 0.6451612903225806,
+                    "sensitivity": 0.7030033370411568,
+                    "specificity": 0.5873192436040044,
+                    "precision": 0.6301096709870389,
+                    "f1": 0.6645636172450052,
+                    "tp": 632,
+                    "fp": 371,
+                    "tn": 528,
+                    "fn": 267
+                },
+                {
+                    "elec": "P8-O2",
+                    "auc": 0.6803159115121115,
+                    "accuracy": 0.6184649610678532,
+                    "balanced_acc": 0.6184649610678532,
+                    "sensitivity": 0.5695216907675195,
+                    "specificity": 0.6674082313681868,
+                    "precision": 0.6313193588162762,
+                    "f1": 0.5988304093567252,
+                    "tp": 512,
+                    "fp": 299,
+                    "tn": 600,
+                    "fn": 387
+                }
+            ],
+            "metrics_atten": [
+                {
+                    "auc": 0.6839486711845197,
+                    "accuracy": 0.5706340378197998,
+                    "balanced_acc": 0.5706340378197998,
+                    "sensitivity": 0.42157953281423804,
+                    "specificity": 0.7196885428253615,
+                    "precision": 0.6006339144215531,
+                    "f1": 0.4954248366013072,
+                    "tp": 379,
+                    "fp": 252,
+                    "tn": 647,
+                    "fn": 520
+                }
+            ]
+        }
+    ]
+}

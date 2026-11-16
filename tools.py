@@ -507,6 +507,8 @@ def _split_loocv(metadata, val, seed, enc_val=None):
         tr = (index[pre & np.isin(sid, tr_sz)], np.asarray(picked[2], dtype=np.int64))
 
         f = _fold(k, tr, va, te, seed + k)
+        f["val_seizures"] = [int(s) for s in va_sz]
+        f["train_seizures"] = [int(s) for s in tr_sz]
         pool = np.setdiff1d(index, np.concatenate([te[0], te[1]]))
         pool = pool[np.argsort(cen[pool])]
         m = int(round(len(pool) * enc_val)) if enc_val else 0
@@ -543,6 +545,7 @@ def _split_temporal(metadata, val, seed, test_ratio=0.35):
 # method=LOOCV 按发作聚类窗口，train/val/test 各自只由完整的发作组成
 # method=temporal 按 FGL 口径，最后 35% 次发作整体作为测试
 # method=growingCV 为原来的因果扩张口径
+# 私有函数
 def split_train_test(metadata, val: float = None, mode="expanding", base=1, seed=0,
                      method="growingCV"):
     """
@@ -602,7 +605,12 @@ def train_val_test(elec_names, meta, windows, seed, val=(0.1, 0.2), method="LOOC
             train_idx = data_set[fold]["train_idx"]
             val_idx = data_set[fold]["val_idx"]
             test_idx = data_set[fold]["test_idx"]
-            wins_and_label = {}
+            # 索引也带上：教师对齐和每折归一化都直接吃 student_data_set[elec][fold]
+            wins_and_label = {"seizure_id": data_set[fold]["seizure_id"],
+                              "train_idx": train_idx, "val_idx": val_idx, "test_idx": test_idx}
+            if "val_seizures" in data_set[fold]:
+                wins_and_label.update(val_seizures=data_set[fold]["val_seizures"],
+                                      train_seizures=data_set[fold]["train_seizures"])
 
             # 原始窗口 -> 升维 -> 张量 float32
             wins_and_label["encoder_train_wins"] = torch.tensor(windows[elec][encoder_train_idx][:, None, :], dtype=torch.float32)
@@ -633,7 +641,7 @@ def teacher_train_val_test(elec_names, meta, windows, seed, val=(0.1, 0.1), meth
 
     dataset = []
     for f in split_train_test(m, seed=seed, val=v, method=method):
-        fold = {"seizure_id": f["seizure_id"]}
+        fold = {"seizure_id": f["seizure_id"], "val_idx": f["val_idx"], "test_idx": f["test_idx"]}
         for key in ("train", "val", "test"):
             idx = f[key + "_idx"]
             fold[key + "_wins"] = torch.tensor(np.stack([w[idx] for w in stack], axis=1), dtype=torch.float32)
@@ -1007,3 +1015,64 @@ def test_elec_model(dataset, fusion_models, path=None, date=None, log_dir=None, 
 
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
+
+def fold_norm_stats(meta, windows, elec_names, *folds, drop_label=3):
+    """某一折的标准化参数 (mean, std)，各 (电极数,)
+    统计池 = 去掉 drop_label(重叠窗) 的窗，再扣掉传进来的每个折的 val/test 索引，避免测试集参与
+    传多个折时取并集（teacher + student 各传一次），只要带 val_idx/test_idx
+    """
+    label = meta[elec_names[0]].label.to_numpy()
+    sid = meta[elec_names[0]].seizure_id.to_numpy()
+    m = label != drop_label
+    for fold in folds:
+        m[fold["val_idx"]] = False
+        m[fold["test_idx"]] = False
+        if "val_seizures" in fold:  # 跟学生对齐的折：test/val 发作的 ictal/preictal 窗不在索引里，得按发作排除
+            m &= ~np.isin(sid, [fold["seizure_id"]] + fold["val_seizures"])
+    mean = np.array([windows[e][m].mean() for e in elec_names], dtype=np.float32)
+    std = np.array([windows[e][m].std() for e in elec_names], dtype=np.float32)
+    return mean, std
+
+
+def norm_wins(wins, mean, std):
+    """(n, 电极数, 窗长) -> 标准化后的副本，mean/std 形状 (电极数,)"""
+    m = torch.as_tensor(mean, dtype=torch.float32).view(1, -1, 1)
+    s = torch.as_tensor(std, dtype=torch.float32).view(1, -1, 1) + 1e-8
+    return (wins - m) / s
+
+def teacher_from_student(elec_names, meta, windows, student_folds, seed=0):
+    """教师的折跟学生走：学生该折的 train/val/test 间期窗 + 对应发作的 ictal 窗，再按 1:1 平衡
+    student_folds 传 t.train_val_test(...)[0]（六电极索引相同）
+    """
+    m = meta[elec_names[0]]
+    label = m.label.to_numpy()
+    sid = m.seizure_id.to_numpy()
+    ictal = label == 2
+    stack = [windows[e] for e in elec_names]
+    rng = np.random.default_rng(seed)
+
+    dataset = []
+    for f in student_folds:
+        groups = {"test": (f["test_idx"], [f["seizure_id"]]),
+                  "val": (f["val_idx"], f["val_seizures"]),
+                  "train": (f["train_idx"], f["train_seizures"])}
+        parts = {}
+        for key, (idx, szs) in groups.items():
+            pos = np.flatnonzero(ictal & np.isin(sid, szs))  # 该边的 ictal 窗
+            neg = idx[label[idx] == 0]                       # 该边的间期窗
+            parts[key] = (pos, neg, min(len(pos), len(neg)))
+        if min(k for _, _, k in parts.values()) == 0:        # 有一条边没 ictal 或没间期，教师和学生都用不了
+            print("[跳过] fold %d 有一条边凑不出平衡数据" % f["seizure_id"])
+            continue
+        fold = {"seizure_id": f["seizure_id"], "val_seizures": f["val_seizures"],
+                "train_seizures": f["train_seizures"]}
+        for key, (pos, neg, k) in parts.items():
+            pos = rng.choice(pos, k, replace=False) if len(pos) > k else pos
+            neg = rng.choice(neg, k, replace=False)
+            sel = np.concatenate([pos, neg])
+            fold[key + "_idx"] = sel
+            fold[key + "_wins"] = torch.tensor(np.stack([w[sel] for w in stack], axis=1), dtype=torch.float32)
+            fold["y_" + key] = torch.tensor(np.r_[np.ones(len(pos)), np.zeros(len(neg))],
+                                            dtype=torch.float32).unsqueeze(1)
+        dataset.append(fold)
+    return dataset

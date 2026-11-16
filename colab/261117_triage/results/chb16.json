@@ -1,0 +1,188 @@
+{
+    "patient": "chb16",
+    "n_edf": 19,
+    "n_edf_missing_channels": 0,
+    "duration_h": 19.0,
+    "n_seizures_summary": 10,
+    "n_windows": 34181,
+    "usable": 20556,
+    "label_counts": {
+        "0": 13744,
+        "1": 6783,
+        "2": 29,
+        "3": 13625
+    },
+    "n_seizures_with_preictal": 10,
+    "fold_detail_raw": [
+        {
+            "seizure_id": 0,
+            "train": [
+                4990,
+                2987
+            ],
+            "val": [
+                894,
+                894
+            ],
+            "test": [
+                899,
+                899
+            ]
+        },
+        {
+            "seizure_id": 1,
+            "train": [
+                4990,
+                2987
+            ],
+            "val": [
+                899,
+                899
+            ],
+            "test": [
+                894,
+                894
+            ]
+        },
+        {
+            "seizure_id": 2,
+            "train": [
+                4995,
+                2987
+            ],
+            "val": [
+                894,
+                894
+            ],
+            "test": [
+                894,
+                894
+            ]
+        },
+        {
+            "seizure_id": 3,
+            "train": [
+                4995,
+                2987
+            ],
+            "val": [
+                894,
+                894
+            ],
+            "test": [
+                894,
+                894
+            ]
+        },
+        {
+            "seizure_id": 4,
+            "train": [
+                4997,
+                2987
+            ],
+            "val": [
+                894,
+                894
+            ],
+            "test": [
+                892,
+                892
+            ]
+        },
+        {
+            "seizure_id": 5,
+            "train": [
+                5225,
+                2987
+            ],
+            "val": [
+                892,
+                892
+            ],
+            "test": [
+                666,
+                666
+            ]
+        },
+        {
+            "seizure_id": 6,
+            "train": [
+                5947,
+                2987
+            ],
+            "val": [
+                666,
+                666
+            ],
+            "test": [
+                170,
+                170
+            ]
+        },
+        {
+            "seizure_id": 7,
+            "train": [
+                6115,
+                2987
+            ],
+            "val": [
+                170,
+                170
+            ],
+            "test": [
+                498,
+                498
+            ]
+        },
+        {
+            "seizure_id": 8,
+            "train": [
+                5884,
+                2987
+            ],
+            "val": [
+                498,
+                498
+            ],
+            "test": [
+                401,
+                401
+            ]
+        },
+        {
+            "seizure_id": 9,
+            "train": [
+                5807,
+                2987
+            ],
+            "val": [
+                401,
+                401
+            ],
+            "test": [
+                575,
+                575
+            ]
+        }
+    ],
+    "folds_raw": 10,
+    "folds_after_balance": 0,
+    "folds_final": 0,
+    "dropped_unbalanced": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "dropped_ictal": [],
+    "kept_seizures": [],
+    "min_train_windows": 0,
+    "decision": "丢弃",
+    "reason": "没有可用折"
+}

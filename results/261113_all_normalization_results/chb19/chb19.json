@@ -1,0 +1,55 @@
+{
+    "config": {
+        "learning_rate": 0.001,
+        "batch_size": 32,
+        "patience": 15,
+        "epochs": 150,
+        "seed": 3,
+        "val": 0.1,
+        "window_length": 4,
+        "window_overlap": 2,
+        "sph": 120,
+        "sop": 1800,
+        "interictal_thr": 7200
+    },
+    "weights": [
+        "/content/drive/MyDrive/colab/results/chb19/weight/2611_13_080502_teacher_fold1.pth",
+        "/content/drive/MyDrive/colab/results/chb19/weight/2611_13_080502_teacher_fold2.pth",
+        "/content/drive/MyDrive/colab/results/chb19/weight/2611_13_080502_teacher_fold3.pth"
+    ],
+    "folds": [
+        {
+            "fold": 1,
+            "seizure_id": 0,
+            "n_train": 78,
+            "n_val": 74,
+            "n_test": 74,
+            "best_epoch": 65,
+            "best_val_loss": 0.2647,
+            "auc": 0.9642,
+            "acc": 0.9054
+        },
+        {
+            "fold": 2,
+            "seizure_id": 1,
+            "n_train": 78,
+            "n_val": 74,
+            "n_test": 74,
+            "best_epoch": 83,
+            "best_val_loss": 0.2532,
+            "auc": 0.9993,
+            "acc": 0.9595
+        },
+        {
+            "fold": 3,
+            "seizure_id": 2,
+            "n_train": 74,
+            "n_val": 74,
+            "n_test": 78,
+            "best_epoch": 79,
+            "best_val_loss": 0.2594,
+            "auc": 0.9625,
+            "acc": 0.9359
+        }
+    ]
+}

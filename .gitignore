@@ -1,0 +1,16 @@
+# 数据文件
+*.edf
+*.hickle
+*.csv
+*.txt
+Dataset/
+cachedir-*/
+
+# 模型权重
+*.pth
+weight/
+embeddings/
+
+# Python 缓存
+__pycache__/
+.ipynb_checkpoints/

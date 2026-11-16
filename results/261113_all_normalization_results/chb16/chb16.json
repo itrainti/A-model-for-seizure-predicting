@@ -1,0 +1,139 @@
+{
+    "config": {
+        "learning_rate": 0.001,
+        "batch_size": 32,
+        "patience": 15,
+        "epochs": 150,
+        "seed": 3,
+        "val": 0.1,
+        "window_length": 4,
+        "window_overlap": 2,
+        "sph": 120,
+        "sop": 1800,
+        "interictal_thr": 7200
+    },
+    "weights": [
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold1.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold2.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold3.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold4.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold5.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold6.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold7.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold8.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold9.pth",
+        "/content/drive/MyDrive/colab/results/chb16/weight/2611_13_075253_teacher_fold10.pth"
+    ],
+    "folds": [
+        {
+            "fold": 1,
+            "seizure_id": 0,
+            "n_train": 46,
+            "n_val": 6,
+            "n_test": 6,
+            "best_epoch": 53,
+            "best_val_loss": 0.5603,
+            "auc": 1.0,
+            "acc": 1.0
+        },
+        {
+            "fold": 2,
+            "seizure_id": 1,
+            "n_train": 46,
+            "n_val": 6,
+            "n_test": 6,
+            "best_epoch": 96,
+            "best_val_loss": 0.4225,
+            "auc": 0.7778,
+            "acc": 0.5
+        },
+        {
+            "fold": 3,
+            "seizure_id": 2,
+            "n_train": 40,
+            "n_val": 6,
+            "n_test": 12,
+            "best_epoch": 1,
+            "best_val_loss": 0.699,
+            "auc": 0.3889,
+            "acc": 0.5
+        },
+        {
+            "fold": 4,
+            "seizure_id": 3,
+            "n_train": 42,
+            "n_val": 12,
+            "n_test": 4,
+            "best_epoch": 10,
+            "best_val_loss": 0.6944,
+            "auc": 1.0,
+            "acc": 0.5
+        },
+        {
+            "fold": 5,
+            "seizure_id": 4,
+            "n_train": 48,
+            "n_val": 4,
+            "n_test": 6,
+            "best_epoch": 46,
+            "best_val_loss": 0.6457,
+            "auc": 0.6667,
+            "acc": 0.8333
+        },
+        {
+            "fold": 6,
+            "seizure_id": 5,
+            "n_train": 48,
+            "n_val": 6,
+            "n_test": 4,
+            "best_epoch": 7,
+            "best_val_loss": 0.695,
+            "auc": 0.0,
+            "acc": 0.5
+        },
+        {
+            "fold": 7,
+            "seizure_id": 6,
+            "n_train": 48,
+            "n_val": 4,
+            "n_test": 6,
+            "best_epoch": 25,
+            "best_val_loss": 0.6742,
+            "auc": 1.0,
+            "acc": 0.8333
+        },
+        {
+            "fold": 8,
+            "seizure_id": 7,
+            "n_train": 46,
+            "n_val": 6,
+            "n_test": 6,
+            "best_epoch": 4,
+            "best_val_loss": 0.6934,
+            "auc": 0.7778,
+            "acc": 0.5
+        },
+        {
+            "fold": 9,
+            "seizure_id": 8,
+            "n_train": 48,
+            "n_val": 6,
+            "n_test": 4,
+            "best_epoch": 91,
+            "best_val_loss": 0.4612,
+            "auc": 1.0,
+            "acc": 1.0
+        },
+        {
+            "fold": 10,
+            "seizure_id": 9,
+            "n_train": 50,
+            "n_val": 4,
+            "n_test": 4,
+            "best_epoch": 4,
+            "best_val_loss": 0.6961,
+            "auc": 0.25,
+            "acc": 0.5
+        }
+    ]
+}

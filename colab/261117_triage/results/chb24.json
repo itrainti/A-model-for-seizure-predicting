@@ -1,0 +1,21 @@
+{
+    "patient": "chb24",
+    "n_edf": 0,
+    "n_edf_missing_channels": 0,
+    "duration_h": 0.0,
+    "n_seizures_summary": 0,
+    "n_windows": 0,
+    "usable": 0,
+    "label_counts": {},
+    "n_seizures_with_preictal": 0,
+    "folds_raw": 0,
+    "folds_after_balance": 0,
+    "folds_final": 0,
+    "fold_detail_raw": [],
+    "dropped_unbalanced": [],
+    "dropped_ictal": [],
+    "kept_seizures": [],
+    "min_train_windows": 0,
+    "decision": "丢弃",
+    "reason": "无可用窗口"
+}

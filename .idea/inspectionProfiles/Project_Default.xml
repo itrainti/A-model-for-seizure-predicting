@@ -1,0 +1,37 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="dnspython" />
+          <option value="PySide6" />
+          <option value="requests" />
+          <option value="beautifulsoup4" />
+          <option value="lxml" />
+          <option value="pandas" />
+          <option value="openpyxl" />
+          <option value="pyyaml" />
+          <option value="tqdm" />
+          <option value="aiohttp" />
+          <option value="deep-translator" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="pandas" />
+          <option value="scipy" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="robotcontrol_test.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

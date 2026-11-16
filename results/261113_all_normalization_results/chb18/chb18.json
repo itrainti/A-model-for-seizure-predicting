@@ -1,0 +1,91 @@
+{
+    "config": {
+        "learning_rate": 0.001,
+        "batch_size": 32,
+        "patience": 15,
+        "epochs": 150,
+        "seed": 3,
+        "val": 0.1,
+        "window_length": 4,
+        "window_overlap": 2,
+        "sph": 120,
+        "sop": 1800,
+        "interictal_thr": 7200
+    },
+    "weights": [
+        "/content/drive/MyDrive/colab/results/chb18/weight/2611_13_080049_teacher_fold1.pth",
+        "/content/drive/MyDrive/colab/results/chb18/weight/2611_13_080049_teacher_fold2.pth",
+        "/content/drive/MyDrive/colab/results/chb18/weight/2611_13_080049_teacher_fold3.pth",
+        "/content/drive/MyDrive/colab/results/chb18/weight/2611_13_080049_teacher_fold4.pth",
+        "/content/drive/MyDrive/colab/results/chb18/weight/2611_13_080049_teacher_fold5.pth",
+        "/content/drive/MyDrive/colab/results/chb18/weight/2611_13_080049_teacher_fold6.pth"
+    ],
+    "folds": [
+        {
+            "fold": 1,
+            "seizure_id": 0,
+            "n_train": 224,
+            "n_val": 26,
+            "n_test": 46,
+            "best_epoch": 1,
+            "best_val_loss": 0.6933,
+            "auc": 0.9301,
+            "acc": 0.5
+        },
+        {
+            "fold": 2,
+            "seizure_id": 1,
+            "n_train": 224,
+            "n_val": 46,
+            "n_test": 26,
+            "best_epoch": 18,
+            "best_val_loss": 0.1398,
+            "auc": 0.8107,
+            "acc": 0.6154
+        },
+        {
+            "fold": 3,
+            "seizure_id": 2,
+            "n_train": 206,
+            "n_val": 26,
+            "n_test": 64,
+            "best_epoch": 1,
+            "best_val_loss": 0.6933,
+            "auc": 0.8965,
+            "acc": 0.5
+        },
+        {
+            "fold": 4,
+            "seizure_id": 3,
+            "n_train": 180,
+            "n_val": 64,
+            "n_test": 52,
+            "best_epoch": 32,
+            "best_val_loss": 0.1862,
+            "auc": 1.0,
+            "acc": 0.9808
+        },
+        {
+            "fold": 5,
+            "seizure_id": 4,
+            "n_train": 178,
+            "n_val": 52,
+            "n_test": 66,
+            "best_epoch": 23,
+            "best_val_loss": 0.2221,
+            "auc": 0.9972,
+            "acc": 0.9697
+        },
+        {
+            "fold": 6,
+            "seizure_id": 5,
+            "n_train": 188,
+            "n_val": 66,
+            "n_test": 42,
+            "best_epoch": 10,
+            "best_val_loss": 0.3085,
+            "auc": 1.0,
+            "acc": 1.0
+        }
+    ]
+}
